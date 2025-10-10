@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c40bh11xbdkv2"]
+[gd_scene load_steps=5 format=3 uid="uid://c40bh11xbdkv2"]
 
 [ext_resource type="PackedScene" uid="uid://dxah7iho2bo4u" path="res://player/M1911/M1911.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://os6eky0rm3w2" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://d75xi61jdm0n" path="res://player/crosshair (1).png" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -18,3 +19,18 @@ transform = Transform3D(0.99415284, 0, 0.107982, 0, 1, 0, -0.107982, 0, 0.994152
 
 [node name="M1911" parent="Camera3D" instance=ExtResource("1_oul6g")]
 transform = Transform3D(0.049908906, -0.024469737, -0.13932098, 0.0004900535, 0.14776762, -0.02577772, 0.14145273, 0.008121756, 0.049246084, 0.1696972, -0.10797769, -0.33772752)
+
+[node name="Crosshair(1)" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 62.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g1dw6")
+expand_mode = 1
