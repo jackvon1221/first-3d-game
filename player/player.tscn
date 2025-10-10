@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c40bh11xbdkv2"]
+
+[ext_resource type="PackedScene" uid="uid://dxah7iho2bo4u" path="res://player/M1911/M1911.glb" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://os6eky0rm3w2" path="res://player/player.gd" id="1_rkbax"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_rkbax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.88517445, 0, 0.46525922, 0, 1, 0, -0.46525922, 0, 0.88517445, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.99415284, 0, 0.107982, 0, 1, 0, -0.107982, 0, 0.99415284, 0, 1, 0)
+
+[node name="M1911" parent="Camera3D" instance=ExtResource("1_oul6g")]
+transform = Transform3D(0.049908906, -0.024469737, -0.13932098, 0.0004900535, 0.14776762, -0.02577772, 0.14145273, 0.008121756, 0.049246084, 0.1696972, -0.10797769, -0.33772752)
