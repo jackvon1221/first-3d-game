@@ -20,6 +20,10 @@ transform = Transform3D(0.99415284, 0, 0.107982, 0, 1, 0, -0.107982, 0, 0.994152
 [node name="M1911" parent="Camera3D" instance=ExtResource("1_oul6g")]
 transform = Transform3D(0.049908906, -0.024469737, -0.13932098, 0.0004900535, 0.14776762, -0.02577772, 0.14145273, 0.008121756, 0.049246084, 0.1696972, -0.10797769, -0.33772752)
 
+[node name="Marker3D" type="Marker3D" parent="Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(-0.07042212, -0.9973925, 0.01578402, 0.99751645, -0.07043361, -0.00016876962, 0.0012800215, 0.015733013, 0.99987525, 0.10551883, -0.029668396, -0.4760592)
+
 [node name="Crosshair(1)" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
