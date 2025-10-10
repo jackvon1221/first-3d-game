@@ -38,3 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_g1dw6")
 expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.215
+one_shot = true

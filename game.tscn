@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=6 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Material" uid="uid://csur04c6hve5n" path="res://level/platform.tres" id="1_feb5d"]
 [ext_resource type="Material" uid="uid://dbfmmdq5x4o83" path="res://level/bridge.tres" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://xkm15k3cyai4" path="res://mob/goblin.tscn" id="4_fc0e3"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1
@@ -75,10 +76,14 @@ size = Vector3(37, 10, 25)
 material = ExtResource("1_feb5d")
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+transform = Transform3D(-0.98880595, 0, -0.14920734, 0, 1, 0, 0.14920734, 0, -0.98880595, -1, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80nbo")
+
+[node name="Goblin" parent="." instance=ExtResource("4_fc0e3")]
+transform = Transform3D(-0.87441665, 0, -0.48517588, 0, 1, 0, 0.48517588, 0, -0.87441665, 1.0563071, 1.1413645, 3.1050854)
