@@ -5,8 +5,16 @@ const RANGE = 40.0
 
 var travelled_distance = 0.0
 
-func _physics_process(delta: float) -> void:
+
+func _physics_process(delta):
 	position += -transform.basis.z * SPEED * delta
 	travelled_distance += SPEED * delta
 	if travelled_distance > RANGE:
 		queue_free()
+
+
+func _on_body_entered(body):
+	print("Bullet hit:", body.name)
+	if body.has_method("take_damage"):
+		body.take_damage()
+	queue_free()
