@@ -28,8 +28,10 @@ func _physics_process(delta):
 		var vel = linear_velocity  # copy current velocity
 		vel.x = direction.x * speed
 		vel.z = direction.z * speed
-		linear_velocity = vel  # assign back, preserving vel.y for gravity
-
+		if health > 0:
+			vel.y = 0.0
+		linear_velocity = vel
+		
 	zombiemodel.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
 func take_damage():
