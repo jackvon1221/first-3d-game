@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c40bh11xbdkv2"]
+[gd_scene load_steps=8 format=3 uid="uid://c40bh11xbdkv2"]
 
 [ext_resource type="Script" uid="uid://os6eky0rm3w2" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://ypktwikslyjq" path="res://scenes/IDLEANIMATION.tscn" id="2_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://bi6ansiu0g7gi" path="res://player/gun_shoot.wav" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://dcuns31xrj3hd" path="res://music/cartoon-jump-6462.mp3" id="5_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://c51sfpuoemgay" path="res://music/KO_SFX_V1.mp3" id="6_boad6"]
 [ext_resource type="Texture2D" uid="uid://d0esihf3nxbkv" path="res://player/target.png" id="6_g6k8r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g1dw6"]
@@ -45,3 +46,8 @@ volume_db = -7.632
 position = Vector2(930, 585)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_g6k8r")
+
+[node name="pushed" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_boad6")
+volume_db = -24.807

@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cp8npql2sbreb" path="res://scenes/zombiedance.gd" id="1_8ji0e"]
 [ext_resource type="PackedScene" uid="uid://djuhgjhjfoh4p" path="res://mob/zombiemodel.tscn" id="2_nffbs"]
-[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mob/mob_take_damage.wav" id="3_ysbx8"]
+[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://music/mob_take_damage.wav" id="3_ysbx8"]
 [ext_resource type="AudioStream" uid="uid://c6xomrkl64fau" path="res://music/ENEMY-KO-SFX.mp3" id="4_ysbx8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ji0e"]
 radius = 0.390625
-height = 1.2540134
+height = 1.1973193
 
 [node name="zombiedance" type="RigidBody3D" groups=["zombies"]]
 gravity_scale = 0.0
 script = ExtResource("1_8ji0e")
 
 [node name="zombiecollision" type="CollisionShape3D" parent="." groups=["zombies"]]
-transform = Transform3D(1.295, 0, 0, 0, 1.295, 0, 0, 0, 1.295, -0.039936006, 0.7233564, 0)
+transform = Transform3D(1.295, 0, 0, 0, 1.295, 0, 0, 0, 1.295, -0.039936006, 0.7600659, 0)
 shape = SubResource("CapsuleShape3D_8ji0e")
 
 [node name="zombiemodel" parent="." instance=ExtResource("2_nffbs")]

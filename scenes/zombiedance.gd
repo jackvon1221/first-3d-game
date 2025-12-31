@@ -25,7 +25,7 @@ func _physics_process(delta):
 	direction = direction.normalized()
 
 	if not touching_player:
-		var vel = linear_velocity  # copy current velocity
+		var vel = linear_velocity  # copy current velocityw
 		vel.x = direction.x * speed
 		vel.z = direction.z * speed
 		if health > 0:
