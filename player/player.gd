@@ -1,50 +1,86 @@
 extends CharacterBody3D
 
+@export var speed := 5.5
+@export var gravity := 20.0
+@export var jump_velocity := 10.0
+@export var mouse_sensitivity := 0.35
+@export var pitch_sensitivity := 0.15
+@onready var jumpsound: AudioStreamPlayer = %jumpsound
+
+var camera_pitch := 0.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x * 0.35
-		%Camera3D.rotation_degrees.x -= event.relative.y * 0.15
-		%Camera3D.rotation_degrees.x = clamp(
-			%Camera3D.rotation_degrees.x, -70.0, 70
-		)
+		# Yaw (player)
+		rotation_degrees.y -= event.relative.x * mouse_sensitivity
+
+		# Pitch (camera only)
+		camera_pitch -= event.relative.y * pitch_sensitivity
+		camera_pitch = clamp(camera_pitch, -40.0, 40.0)
+
+		%Camera3D.rotation_degrees.x = camera_pitch
+
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-		
+
 func _physics_process(delta: float) -> void:
-	const SPEED = 5.5
-	
-	var input_direction_2D = Input.get_vector(
-		"move_left", "move_right", "move_forward", "move_backward"
+	var input_dir := Input.get_vector(
+		"move_left",
+		"move_right",
+		"move_forward",
+		"move_backward"
 	)
-	var input_direction_3D = Vector3(
-		input_direction_2D.x, 0.0, input_direction_2D.y
-	)
-	var direction = transform.basis * input_direction_3D
-	
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
-	
-	velocity.y -= 20.0 * delta
+	var direction := (transform.basis * Vector3(
+		input_dir.x,
+		0.0,
+		input_dir.y
+	)).normalized()
+
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = 10.0
+		jump()
+		%jumpsound.play()
 	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y = 0.0
-		
-	move_and_slide()
 	
+
+	move_and_slide()
+
 	if Input.is_action_just_pressed("shoot") and %Timer.is_stopped():
 		shoot_bullet()
-	
+
+func jump():
+	velocity.y = jump_velocity
+	jumpsound.play()
+
 func shoot_bullet():
 	const BULLET_3D = preload("uid://tyxadroe7tlv")
-	var new_bullet = BULLET_3D.instantiate()
-	%Marker3D.add_child(new_bullet)
-	
-	new_bullet.global_transform = %Marker3D.global_transform
+	var bullet = BULLET_3D.instantiate()
+
+	get_tree().current_scene.add_child(bullet)
+
+	# Spawn at character muzzle
+	bullet.global_position = %Marker3D.global_position
+
+	# Aim where the camera is looking
+	var dir = -%Camera3D.global_transform.basis.z
+	bullet.look_at(bullet.global_position + dir, Vector3.UP)
+
 	%Timer.start()
+	%AudioStreamPlayer.play()
+func apply_knockback(from_position: Vector3, force: float = 10.0, upward: float = 5.0):
+	var dir = (global_position - from_position).normalized()    
+	velocity.x = dir.x * force
+	velocity.z = dir.z * force
+	velocity.y = upward
+	set_physics_process(false)
+	await get_tree().create_timer(0.2).timeout
+	set_physics_process(true)

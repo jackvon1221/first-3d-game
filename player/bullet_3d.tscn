@@ -15,6 +15,6 @@ script = ExtResource("1_hgguu")
 shape = SubResource("SphereShape3D_hgguu")
 
 [node name="Projectile3D" parent="." instance=ExtResource("1_kixxk")]
-transform = Transform3D(1.1749619e-08, 0, 0.08959999, 0, 0.08959999, 0, -0.08959999, 0, 1.1749619e-08, 0, 0, 0)
+transform = Transform3D(6.764611e-09, 0, 0.08959999, 0, 0.08959999, 0, -0.08959999, 0, 6.764611e-09, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

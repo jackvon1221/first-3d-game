@@ -1,45 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://c40bh11xbdkv2"]
+[gd_scene load_steps=7 format=3 uid="uid://c40bh11xbdkv2"]
 
-[ext_resource type="PackedScene" uid="uid://dxah7iho2bo4u" path="res://player/M1911/M1911.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://os6eky0rm3w2" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://d75xi61jdm0n" path="res://player/crosshair (1).png" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://ypktwikslyjq" path="res://scenes/IDLEANIMATION.tscn" id="2_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://bi6ansiu0g7gi" path="res://player/gun_shoot.wav" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://dcuns31xrj3hd" path="res://music/cartoon-jump-6462.mp3" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://d0esihf3nxbkv" path="res://player/target.png" id="6_g6k8r"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_g1dw6"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rkbax")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.88517445, 0, 0.46525922, 0, 1, 0, -0.46525922, 0, 0.88517445, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_kqu6x")
+transform = Transform3D(0.89402616, 0, 0.46991184, 0, 1.01, 0, -0.46991184, 0, 0.89402616, 0.004477799, 0.75520515, 0.058645785)
+shape = SubResource("SphereShape3D_g1dw6")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(0.99415284, 0, 0.107982, 0, 1, 0, -0.107982, 0, 0.99415284, 0, 1, 0)
-
-[node name="M1911" parent="Camera3D" instance=ExtResource("1_oul6g")]
-transform = Transform3D(0.049908906, -0.024469737, -0.13932098, 0.0004900535, 0.14776762, -0.02577772, 0.14145277, 0.008121756, 0.049246084, 0.17328033, -0.10797769, -0.3707163)
-
-[node name="Marker3D" type="Marker3D" parent="Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(-0.07042212, -0.9973925, 0.015784018, 0.99751645, -0.07043361, -0.00016876962, 0.0012800209, 0.01573304, 0.99987525, 0.10862376, -0.02966839, -0.5046452)
-
-[node name="Crosshair(1)" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.0
-offset_top = -62.0
-offset_right = 62.0
-offset_bottom = 62.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_g1dw6")
-expand_mode = 1
+[node name="SQUIBBOMOVING" parent="CollisionShape3D" instance=ExtResource("2_g1dw6")]
+transform = Transform3D(-0.36515662, 0, 0.2588002, 0, 0.2902786, 0, -0.19966066, 0, -0.47331595, 0, 0, 0)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.215
 one_shot = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.99415284, 0, 0.107982, 0, 1, 0, -0.107982, 0, 0.99415284, 1.2494036, 1.9977084, 3.3971093)
+
+[node name="Marker3D" type="Marker3D" parent="Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(-0.50251853, -8.185105, 0.03471069, 7.118083, -0.5780138, -0.0003711427, 0.009133987, 0.1291138, 2.1988337, -0.79225475, -1.0198933, -4.9558315)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_yw30f")
+volume_db = -0.001
+
+[node name="jumpsound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_qjkh3")
+volume_db = -7.632
+
+[node name="Target" type="Sprite2D" parent="."]
+position = Vector2(930, 585)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_g6k8r")

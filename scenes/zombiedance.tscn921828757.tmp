@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://h87bi0exw0mu"]
+
+[ext_resource type="Script" uid="uid://cp8npql2sbreb" path="res://scenes/zombiedance.gd" id="1_8ji0e"]
+[ext_resource type="PackedScene" uid="uid://djuhgjhjfoh4p" path="res://mob/zombiemodel.tscn" id="2_nffbs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ji0e"]
+radius = 0.390625
+height = 1.3909912
+
+[node name="zombiedance" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_8ji0e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.385, 0, 0, 0, 1.385, 0, 0, 0, 1.385, 0.025364757, 0.8531612, 0)
+shape = SubResource("CapsuleShape3D_8ji0e")
+
+[node name="zombiemodel" parent="." instance=ExtResource("2_nffbs")]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

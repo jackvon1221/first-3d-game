@@ -6,11 +6,14 @@ var touching_player := false
 
 @onready var zombiemodel = %zombiemodel
 @onready var timer: Timer = %Timer
+@onready var hurtsound: AudioStreamPlayer3D = %hurtsound
+@onready var k_osound: AudioStreamPlayer3D = %KOsound
+
 @onready var player = get_node("/root/Game/Player")
 
 func _ready():
 	lock_rotation = true
-	gravity_scale = 0.0
+	gravity_scale = 1.0
 	linear_damp = 5.0
 
 func _physics_process(delta):
@@ -22,7 +25,10 @@ func _physics_process(delta):
 	direction = direction.normalized()
 
 	if not touching_player:
-		linear_velocity = direction * speed
+		var vel = linear_velocity  # copy current velocity
+		vel.x = direction.x * speed
+		vel.z = direction.z * speed
+		linear_velocity = vel  # assign back, preserving vel.y for gravity
 
 	zombiemodel.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
@@ -32,11 +38,12 @@ func take_damage():
 
 	zombiemodel.hurt()
 	health -= 1
+	hurtsound.play()
 
 	if health == 0:
 		set_physics_process(false)
 
-	# Let physics take over for death
+		# Let physics take over for death
 		lock_rotation = false
 		linear_damp = 0.0
 		angular_damp = 0.0
@@ -48,7 +55,7 @@ func take_damage():
 		apply_central_impulse(direction * 12.0 + random_upward_force)
 
 		timer.start()
-
+		k_osound.play()
 
 func _on_body_entered(body):
 	if body == player:

@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bxe4s4061h61j" path="res://mats/ts9a_0uup_231020.jpg" id="1_hh003"]
 
 [resource]
-albedo_color = Color(0.66965747, 0.3579471, 0.98220736, 1)
+albedo_color = Color(0.3019608, 0.14509805, 1, 1)
 albedo_texture = ExtResource("1_hh003")
 uv1_triplanar = true

@@ -1,18 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://h87bi0exw0mu"]
+[gd_scene load_steps=6 format=3 uid="uid://h87bi0exw0mu"]
 
 [ext_resource type="Script" uid="uid://cp8npql2sbreb" path="res://scenes/zombiedance.gd" id="1_8ji0e"]
 [ext_resource type="PackedScene" uid="uid://djuhgjhjfoh4p" path="res://mob/zombiemodel.tscn" id="2_nffbs"]
+[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mob/mob_take_damage.wav" id="3_ysbx8"]
+[ext_resource type="AudioStream" uid="uid://c6xomrkl64fau" path="res://music/ENEMY-KO-SFX.mp3" id="4_ysbx8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ji0e"]
 radius = 0.390625
-height = 1.517334
+height = 1.3260527
 
 [node name="zombiedance" type="RigidBody3D"]
 gravity_scale = 0.0
 script = ExtResource("1_8ji0e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025364757, 0.76566887, 0)
+transform = Transform3D(1.295, 0, 0, 0, 1.295, 0, 0, 0, 1.295, -0.039936006, 0.8210197, 0)
 shape = SubResource("CapsuleShape3D_8ji0e")
 
 [node name="zombiemodel" parent="." instance=ExtResource("2_nffbs")]
@@ -22,5 +24,15 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
+
+[node name="hurtsound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ysbx8")
+volume_db = -4.66
+
+[node name="KOsound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ysbx8")
+volume_db = -6.214
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,23 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=10 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="3_p57ef"]
 [ext_resource type="Material" uid="uid://cmdsmvuubw5ic" path="res://mats/ground mat.tres" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://h87bi0exw0mu" path="res://scenes/zombiedance.tscn" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://dbnbw4iyhq7h5" path="res://music/qwantani_moonrise_puresky_4k.exr" id="4_p57ef"]
+[ext_resource type="AudioStream" uid="uid://dq3n2uxmgjnvg" path="res://music/track 1.mp3" id="5_iywne"]
 
-[sub_resource type="Environment" id="Environment_80nbo"]
-background_mode = 1
-background_color = Color(0.019609611, 0.03639817, 0.24587297, 0)
-ambient_light_source = 2
-ambient_light_color = Color(0.30987114, 0.8004829, 0.94437736, 1)
-tonemap_mode = 2
-tonemap_exposure = 1.16
-tonemap_white = 1.48
-fog_enabled = true
-fog_light_color = Color(0.00010810564, 0, 0.00035865666, 1)
-fog_density = 0.053
-fog_height = -0.4
-fog_height_density = 0.35
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
+panorama = ExtResource("4_p57ef")
+
+[sub_resource type="Sky" id="Sky_gee14"]
+sky_material = SubResource("PanoramaSkyMaterial_u5sy4")
+
+[sub_resource type="Environment" id="Environment_0tnpc"]
+background_mode = 2
+background_energy_multiplier = 0.1
+sky = SubResource("Sky_gee14")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.58
+ambient_light_energy = 1.2
 
 [node name="Game" type="Node3D"]
 
@@ -34,13 +36,13 @@ size = Vector3(6, 4, 11)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.5999994, 49.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.1276612, 49.5)
 use_collision = true
 size = Vector3(5, 4, 11)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.5999994, 57)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.0168076, 57)
 use_collision = true
 size = Vector3(6, 4, 11)
 material = ExtResource("1_p57ef")
@@ -64,7 +66,7 @@ size = Vector3(40, 10, 18)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -5.5999994, 71)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -5.5999994, 71.052986)
 use_collision = true
 size = Vector3(87, 10, 18)
 material = ExtResource("3_u5sy4")
@@ -76,14 +78,27 @@ size = Vector3(37, 10, 25)
 material = ExtResource("1_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
-transform = Transform3D(-0.98880595, 0, -0.14920734, 0, 1, 0, 0.14920734, 0, -0.98880595, -1, 0, 0)
+transform = Transform3D(-0.98880595, 0, -0.14920734, 0, 1, 0, 0.14920734, 0, -0.98880595, -1, -0.54179907, -1.16448)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
 shadow_enabled = true
 
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.40082255, -0.6130774, -0.6807917, 0.80963206, -0.58480775, 0.049962174, -0.42876294, -0.53116465, 0.73077106, 0.66583824, -0.044029713, 140.12787)
+shadow_enabled = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_80nbo")
+environment = SubResource("Environment_0tnpc")
 
 [node name="zombiedance" parent="." instance=ExtResource("4_lbhrr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.65831935, 15.2286215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2837105, -0.7920938, 24.384495)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iywne")
+autoplay = true
+parameters/looping = true
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+
+[editable path="Player"]
