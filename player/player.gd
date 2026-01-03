@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		var col = collision.get_collider()
 		
 		# Check if it's a zombie that can knock us back
-		if col and col is RigidBody3D and col.has_node("zombiecollision") and can_be_knocked_back:
+		if col and col is CharacterBody3D and col.has_node("zombiecollision") and can_be_knocked_back:
 			print("*** ZOMBIE HIT DETECTED! Applying knockback ***")
 			print("Zombie position: ", col.global_position)
 			print("Player position: ", global_position)

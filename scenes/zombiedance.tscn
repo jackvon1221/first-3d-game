@@ -9,8 +9,7 @@
 radius = 0.390625
 height = 1.1973193
 
-[node name="zombiedance" type="RigidBody3D" groups=["zombies"]]
-gravity_scale = 0.0
+[node name="zombiedance" type="CharacterBody3D" groups=["zombies"]]
 script = ExtResource("1_8ji0e")
 
 [node name="zombiecollision" type="CollisionShape3D" parent="." groups=["zombies"]]
