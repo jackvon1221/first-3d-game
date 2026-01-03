@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=17 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://dq3n2uxmgjnvg" path="res://music/track 1.mp3" id="5_iywne"]
 [ext_resource type="FontFile" uid="uid://b112wkvshlubj" path="res://mats/Steak Melt.otf" id="7_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://3782uhh108ma" path="res://music/W-SFX.mp3" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="10_vtaks"]
+[ext_resource type="AudioStream" uid="uid://fphqp666i44v" path="res://music/damn.mp3" id="11_kvpfn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("4_p57ef")
@@ -36,9 +38,9 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_gee14")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.5999994, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.537933, -5.5999994, 0)
 use_collision = true
-size = Vector3(10, 10, 10)
+size = Vector3(74.08661, 10, 10)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
@@ -60,15 +62,21 @@ size = Vector3(6, 4, 11)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.500002, -2.5999994, 26)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.500002, -2.5999994, 27.86621)
 use_collision = true
-size = Vector3(5, 4, 21)
+size = Vector3(18.007813, 4, 21)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.49999776, -2.5999994, 12.000002)
 use_collision = true
 size = Vector3(4, 4, 14)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGBox3D14"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -50.627674, -0.07474804, -1.8654566)
+use_collision = true
+size = Vector3(4.712036, 4, 17.799683)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
@@ -84,13 +92,19 @@ size = Vector3(87, 10, 18)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40, -5.5999994, 41)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40, -5.5999994, 39.311035)
 use_collision = true
-size = Vector3(37, 10, 25)
+size = Vector3(40.37793, 10, 25)
 material = ExtResource("1_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
-transform = Transform3D(-0.98880595, 0, -0.14920734, 0, 1, 0, 0.14920734, 0, -0.98880595, -1, -0.54179907, -1.16448)
+transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
+
+[node name="Marker3D" parent="Player/Camera3D" index="0"]
+transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.5780138, -0.0003711427, 0.009133995, 0.12911391, 2.198833, -0.77152634, -1.071953, -4.0608215)
+
+[node name="Target" parent="Player" index="5"]
+position = Vector2(938, 579)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
@@ -111,16 +125,22 @@ parameters/looping = true
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 
 [node name="MobSpawner3D" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.258526, -1.8259602, 33.69459)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.258526, -1.8259602, 27.705715)
+
+[node name="MobSpawner3D4" parent="MobSpawner3D" instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.674255, -0.7719321, -29.886425)
 
 [node name="MobSpawner3D2" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.557327, -2.4410071, 63.291817)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.31451, -1.4067283, 68.1394)
 
 [node name="MobSpawner3D3" parent="." instance=ExtResource("2_u5sy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6927261, 29.597223)
 
 [node name="MobSpawner3D4" parent="." instance=ExtResource("2_u5sy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.674255, -1.639072, 68.50648)
+
+[node name="MobSpawner3D4" parent="MobSpawner3D4" instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1467476, -0.42153883, -36.016304)
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -143,6 +163,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.069801, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="killplane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.853409, 0)
 shape = SubResource("WorldBoundaryShape3D_0tnpc")
+
+[node name="smoke_puff" parent="." instance=ExtResource("10_vtaks")]
+
+[node name="diedsound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_kvpfn")
 
 [connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
 [connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]

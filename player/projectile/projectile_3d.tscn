@@ -10,7 +10,8 @@ shader_parameter/tail_color = Color(0.9490196, 0.92156863, 0.27058825, 1)
 shader_parameter/head_color = Color(0.38736632, 0.38658467, 0.37247604, 1)
 
 [node name="Projectile3D" instance=ExtResource("1_a4474")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="Projectile" parent="." index="0"]
-transform = Transform3D(6.4373035e-07, 1.9999993, 0, -1.8000004, 7.152555e-07, 0, 0, 0, 1.7, 0, 0, 0)
+transform = Transform3D(8.475745e-07, 3, 0, -2.7, 9.417494e-07, 0, 0, 0, 2.55, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_5soxo")
