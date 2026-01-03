@@ -8,7 +8,7 @@ var touching_player := false
 @onready var timer: Timer = %Timer
 @onready var hurtsound: AudioStreamPlayer3D = %hurtsound
 @onready var k_osound: AudioStreamPlayer3D = %KOsound
-
+@onready var floor_ray: RayCast3D = %FloorRay
 @onready var player = get_node("/root/Game/Player")
 
 func _ready():
@@ -25,11 +25,20 @@ func _physics_process(delta):
 	direction = direction.normalized()
 
 	if not touching_player:
-		var vel = linear_velocity  # copy current velocityw
+		var vel = linear_velocity
+
+	# Horizontal movement toward player
 		vel.x = direction.x * speed
 		vel.z = direction.z * speed
-		if health > 0:
-			vel.y = 0.0
+
+	# Only zero Y if floor is below
+		if floor_ray.is_colliding():
+			if vel.y < 0:
+				vel.y = 0
+		else:
+		# Optional: add extra gravity to pull them down faster
+			vel.y -= 20.0 * delta
+
 		linear_velocity = vel
 		
 	zombiemodel.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI

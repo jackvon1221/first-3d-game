@@ -6,10 +6,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5soxo"]
 render_priority = 0
 shader = ExtResource("2_q2erl")
-shader_parameter/tail_color = Color(0.94742006, 0.3025093, 0.2694789, 1)
+shader_parameter/tail_color = Color(0.9490196, 0.92156863, 0.27058825, 1)
 shader_parameter/head_color = Color(0.38736632, 0.38658467, 0.37247604, 1)
 
 [node name="Projectile3D" instance=ExtResource("1_a4474")]
 
 [node name="Projectile" parent="." index="0"]
+transform = Transform3D(6.4373035e-07, 1.9999993, 0, -1.8000004, 7.152555e-07, 0, 0, 0, 1.7, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_5soxo")
