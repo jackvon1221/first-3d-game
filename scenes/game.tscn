@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dr6dvlaay81w2"]
 
-[ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b4gg5f4u2kib2" path="res://mob/spawner/mob_spawner_3d.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="3_p57ef"]
@@ -38,64 +38,58 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_gee14")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.537933, -5.5999994, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.435677, -5.5999994, 39.12333)
 use_collision = true
-size = Vector3(74.08661, 10, 10)
+size = Vector3(17.947838, 10, 3.3143005)
 material = ExtResource("1_p57ef")
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.5999994, 42.687088)
-use_collision = true
-size = Vector3(6, 4, 11)
-material = ExtResource("1_p57ef")
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.1276612, 49.35509)
-use_collision = true
-size = Vector3(5, 4, 11)
-material = ExtResource("3_u5sy4")
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.499998, -2.0168076, 56.36741)
-use_collision = true
-size = Vector3(6, 4, 11)
-material = ExtResource("1_p57ef")
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.500002, -2.5999994, 27.86621)
-use_collision = true
-size = Vector3(18.007813, 4, 21)
-material = ExtResource("3_u5sy4")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.49999776, -2.5999994, 12.000002)
-use_collision = true
-size = Vector3(4, 4, 14)
-material = ExtResource("3_u5sy4")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="CSGBox3D14"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -50.627674, -0.07474804, -1.8654566)
-use_collision = true
-size = Vector3(4.712036, 4, 17.799683)
-material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, -5.5999994, 28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.782981, -5.5999994, 39.75801)
 use_collision = true
-size = Vector3(40, 10, 18)
+size = Vector3(16.226221, 10, 6.3188286)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -5.5999994, 69.87138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.61125, -1.1035128, 70.211365)
 use_collision = true
-size = Vector3(87, 10, 18)
-material = ExtResource("3_u5sy4")
+size = Vector3(9.791651, 4.5117188, 6.3188286)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.514718, -2.7094007, 49.35709)
+use_collision = true
+size = Vector3(9.791651, 4.5117188, 6.3188286)
+material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40, -5.5999994, 39.311035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.61125, 0.87483597, 78.63779)
 use_collision = true
-size = Vector3(40.37793, 10, 25)
+size = Vector3(9.791651, 4.5117188, 6.3188286)
 material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.471252, -2.5999994, 39.732224)
+use_collision = true
+size = Vector3(10.003555, 4, 16.935913)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 39.732224)
+use_collision = true
+size = Vector3(10.003555, 4, 16.935913)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.908064, 3.322606, 88.33923)
+use_collision = true
+size = Vector3(10.003555, 4, 16.935913)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.006207, -2.5999994, 54.448086)
+use_collision = true
+size = Vector3(19.763496, 4, 10.274078)
+material = ExtResource("3_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
@@ -124,23 +118,17 @@ parameters/looping = true
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 
-[node name="MobSpawner3D" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.258526, -1.8259602, 27.705715)
-
-[node name="MobSpawner3D4" parent="MobSpawner3D" instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.674255, -0.7719321, -29.886425)
-
-[node name="MobSpawner3D2" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.31451, -1.4067283, 68.1394)
-
 [node name="MobSpawner3D3" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6927261, 29.597223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.058846, -1.6927261, 39.093555)
 
-[node name="MobSpawner3D4" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.674255, -1.639072, 68.50648)
+[node name="MobSpawner3D5" parent="." instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07379913, -1.6927261, 41.730267)
 
-[node name="MobSpawner3D4" parent="MobSpawner3D4" instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1467476, -0.42153883, -36.016304)
+[node name="MobSpawner3D7" parent="." instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.603764, -1.6927261, 53.738342)
+
+[node name="MobSpawner3D6" parent="." instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07379913, -1.6927261, 36.792557)
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -170,7 +158,6 @@ shape = SubResource("WorldBoundaryShape3D_0tnpc")
 unique_name_in_owner = true
 stream = ExtResource("11_kvpfn")
 
-[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
 [connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
 
 [editable path="Player"]

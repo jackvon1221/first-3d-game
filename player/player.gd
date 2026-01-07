@@ -43,8 +43,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Only apply movement if we're not currently in knockback
 	if can_be_knocked_back:  # Normal movement
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		var s = speed * (2.0 if Input.is_action_pressed("sprint") else 1.0)
+		velocity.x = direction.x * s
+		velocity.z = direction.z * s
 
 	# Gravity
 	if not is_on_floor():
