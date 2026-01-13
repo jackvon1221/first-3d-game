@@ -38,9 +38,9 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_gee14")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.435677, -5.5999994, 39.12333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.958672, -5.5999994, 39.12333)
 use_collision = true
-size = Vector3(17.947838, 10, 3.3143005)
+size = Vector3(19.264355, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
@@ -49,22 +49,22 @@ use_collision = true
 size = Vector3(16.226221, 10, 6.3188286)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.61125, -1.1035128, 70.211365)
-use_collision = true
-size = Vector3(9.791651, 4.5117188, 6.3188286)
-material = ExtResource("1_p57ef")
-
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.514718, -2.7094007, 49.35709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2314053, -2.7094007, 49.35709)
+use_collision = true
+size = Vector3(12.263135, 4.5117188, 6.3188286)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9057627, -2.7094007, 29.566418)
 use_collision = true
 size = Vector3(9.791651, 4.5117188, 6.3188286)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.61125, 0.87483597, 78.63779)
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.600105, -2.7094007, 26.881851)
 use_collision = true
-size = Vector3(9.791651, 4.5117188, 6.3188286)
+size = Vector3(16.612621, 4.5117188, 15.178457)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="."]
@@ -79,16 +79,22 @@ use_collision = true
 size = Vector3(10.003555, 4, 16.935913)
 material = ExtResource("3_u5sy4")
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.908064, 3.322606, 88.33923)
-use_collision = true
-size = Vector3(10.003555, 4, 16.935913)
-material = ExtResource("3_u5sy4")
-
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.006207, -2.5999994, 54.448086)
 use_collision = true
 size = Vector3(19.763496, 4, 10.274078)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.714554, -2.5999994, 56.428722)
+use_collision = true
+size = Vector3(19.763496, 4, 27.70579)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.540087, -2.5999994, 22.08209)
+use_collision = true
+size = Vector3(21.336826, 4, 25.216267)
 material = ExtResource("3_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
@@ -121,14 +127,17 @@ parameters/looping = true
 [node name="MobSpawner3D3" parent="." instance=ExtResource("2_u5sy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.058846, -1.6927261, 39.093555)
 
+[node name="MobSpawner3D4" parent="." instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.524298, -1.6927261, 55.707546)
+
 [node name="MobSpawner3D5" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07379913, -1.6927261, 41.730267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07379913, -1.6927261, 38.75024)
 
 [node name="MobSpawner3D7" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.603764, -1.6927261, 53.738342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.603764, -1.6927261, 52.967358)
 
 [node name="MobSpawner3D6" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07379913, -1.6927261, 36.792557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.25525, -1.6927261, 22.756027)
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
