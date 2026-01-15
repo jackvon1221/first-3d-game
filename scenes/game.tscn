@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=18 format=3 uid="uid://dr6dvlaay81w2"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_gee14"]
+[ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b4gg5f4u2kib2" path="res://mob/spawner/mob_spawner_3d.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="3_p57ef"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://3782uhh108ma" path="res://music/W-SFX.mp3" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://fphqp666i44v" path="res://music/damn.mp3" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bb3rd6wkl3myp" path="res://scenes/pickup.tscn" id="12_dinhu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("4_p57ef")
@@ -34,7 +35,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0tnpc"]
 
-[node name="Game" type="Node3D"]
+[node name="Game" type="Node3D" groups=["game"]]
 script = ExtResource("1_gee14")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -43,28 +44,46 @@ use_collision = true
 size = Vector3(19.264355, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.782981, -5.5999994, 39.75801)
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.928251, -5.5999994, 39.12333)
 use_collision = true
-size = Vector3(16.226221, 10, 6.3188286)
+size = Vector3(16.59856, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2314053, -2.7094007, 49.35709)
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.025496516, 0, -0.9996749, 0, 1, 0, 0.9996749, 0, -0.025496516, -23.39384, -5.5999994, 28.0894)
 use_collision = true
-size = Vector3(12.263135, 4.5117188, 6.3188286)
+size = Vector3(14.051111, 10, 3.3143005)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.99991024, 0, 0.013403691, 0, 1, 0, -0.013403691, 0, -0.99991024, -6.870722, -5.5999994, -26.153444)
+use_collision = true
+size = Vector3(19.69743, 10, 3.3143005)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.99991024, 0, 0.013403691, 0, 1, 0, -0.013403691, 0, -0.99991024, 17.0136, -5.5999994, -26.153444)
+use_collision = true
+size = Vector3(19.69743, 10, 3.3143005)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(0.017975919, 0, 0.99983853, 0, 1, 0, -0.99983853, 0, 0.017975919, 24.856836, -5.5999994, -12.012391)
+use_collision = true
+size = Vector3(19.69743, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9057627, -2.7094007, 29.566418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, 14.849377)
 use_collision = true
 size = Vector3(9.791651, 4.5117188, 6.3188286)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.600105, -2.7094007, 26.881851)
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, -2.3568468)
 use_collision = true
-size = Vector3(16.612621, 4.5117188, 15.178457)
+size = Vector3(9.791651, 4.5117188, 6.3188286)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="."]
@@ -74,27 +93,21 @@ size = Vector3(10.003555, 4, 16.935913)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 39.732224)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 39.117138)
 use_collision = true
-size = Vector3(10.003555, 4, 16.935913)
+size = Vector3(8.773384, 4, 16.935913)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.006207, -2.5999994, 54.448086)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.973022, -2.5999994, -18.239838)
 use_collision = true
 size = Vector3(19.763496, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.714554, -2.5999994, 56.428722)
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.999811, 0, 0.019441778, 0, 1, 0, -0.019441778, 0, -0.999811, 24.31137, -2.5999994, 5.6231346)
 use_collision = true
-size = Vector3(19.763496, 4, 27.70579)
-material = ExtResource("3_u5sy4")
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.540087, -2.5999994, 22.08209)
-use_collision = true
-size = Vector3(21.336826, 4, 25.216267)
+size = Vector3(19.763496, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
@@ -122,22 +135,14 @@ stream = ExtResource("5_iywne")
 autoplay = true
 parameters/looping = true
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-
-[node name="MobSpawner3D3" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.058846, -1.6927261, 39.093555)
-
-[node name="MobSpawner3D4" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.524298, -1.6927261, 55.707546)
-
 [node name="MobSpawner3D5" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07379913, -1.6927261, 38.75024)
-
-[node name="MobSpawner3D7" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.603764, -1.6927261, 52.967358)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6959229, -1.6927261, 39.180073)
 
 [node name="MobSpawner3D6" parent="." instance=ExtResource("2_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.25525, -1.6927261, 22.756027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.56801, -1.6927261, -12.075535)
+
+[node name="MobSpawner3D7" parent="." instance=ExtResource("2_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.56801, -1.6927261, -26.257349)
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -166,6 +171,21 @@ shape = SubResource("WorldBoundaryShape3D_0tnpc")
 [node name="diedsound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_kvpfn")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, 6.1174498)
+use_collision = true
+size = Vector3(9.791651, 4.5117188, 6.3188286)
+material = ExtResource("1_p57ef")
+
+[node name="Pickup" parent="." instance=ExtResource("12_dinhu")]
+transform = Transform3D(0.026363257, 0, -0.39913028, 0, 0.4, 0, 0.39913028, 0, 0.026363257, -17.388195, 0.18286085, 39.60804)
+
+[node name="Pickup2" parent="." instance=ExtResource("12_dinhu")]
+transform = Transform3D(-0.3939449, 0, -0.069335476, 0, 0.4, 0, 0.069335476, 0, -0.3939449, -23.509748, 0.18286085, 5.9111376)
+
+[node name="Pickup3" parent="." instance=ExtResource("12_dinhu")]
+transform = Transform3D(0.39078996, 0, 0.08534171, 0, 0.39999998, 0, -0.08534171, 0, 0.39078996, 22.42071, 0.18286085, 5.9111376)
 
 [connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
 

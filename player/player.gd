@@ -103,6 +103,8 @@ func _on_knockback_cooldown_timeout():
 func jump():
 	velocity.y = jump_velocity
 	jumpsound.play()
+	
+	
 
 func shoot_bullet():
 	const BULLET_3D = preload("uid://tyxadroe7tlv")

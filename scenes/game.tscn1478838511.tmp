@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=3 uid="uid://dr6dvlaay81w2"]
+
+[ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
+[ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="3_p57ef"]
+[ext_resource type="Material" uid="uid://cmdsmvuubw5ic" path="res://mats/ground mat.tres" id="3_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://dbnbw4iyhq7h5" path="res://music/qwantani_moonrise_puresky_4k.exr" id="4_p57ef"]
+[ext_resource type="AudioStream" uid="uid://dq3n2uxmgjnvg" path="res://music/track 1.mp3" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://3782uhh108ma" path="res://music/W-SFX.mp3" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="10_vtaks"]
+[ext_resource type="AudioStream" uid="uid://fphqp666i44v" path="res://music/damn.mp3" id="11_kvpfn"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
+panorama = ExtResource("4_p57ef")
+
+[sub_resource type="Sky" id="Sky_gee14"]
+sky_material = SubResource("PanoramaSkyMaterial_u5sy4")
+
+[sub_resource type="Environment" id="Environment_0tnpc"]
+background_mode = 2
+background_energy_multiplier = 0.1
+sky = SubResource("Sky_gee14")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.58
+ambient_light_energy = 1.2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0tnpc"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_gee14")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.958672, -1.630517, 39.12333)
+use_collision = true
+size = Vector3(19.264355, 2.0610352, 3.3143005)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9057627, -2.7094007, 92.38429)
+use_collision = true
+size = Vector3(9.791651, 4.5117188, 6.3188286)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.600105, -2.7094007, 93.942955)
+use_collision = true
+size = Vector3(16.612621, 4.5117188, 15.178457)
+material = ExtResource("1_p57ef")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.471252, -2.5999994, 39.732224)
+use_collision = true
+size = Vector3(10.003555, 4, 16.935913)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 38.925507)
+use_collision = true
+size = Vector3(3.8741798, 4, 16.935913)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.006207, -2.5999994, 87.95723)
+use_collision = true
+size = Vector3(19.763496, 4, 10.274078)
+material = ExtResource("3_u5sy4")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.540087, -2.5999994, 118.4801)
+use_collision = true
+size = Vector3(21.336826, 4, 25.216267)
+material = ExtResource("3_u5sy4")
+
+[node name="Player" parent="." instance=ExtResource("3_p57ef")]
+transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
+
+[node name="Marker3D" parent="Player/Camera3D" index="0"]
+transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.5780138, -0.0003711427, 0.009133995, 0.12911391, 2.198833, -0.77152634, -1.071953, -4.0608215)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.40082255, -0.6130774, -0.6807917, 0.80963206, -0.58480775, 0.049962174, -0.42876294, -0.53116465, 0.73077106, 0.66583824, -0.044029713, 140.12787)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0tnpc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iywne")
+autoplay = true
+parameters/looping = true
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+
+[node name="TenPointSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_0tnpc")
+volume_db = -10.496
+
+[node name="killplane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.069801, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killplane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.853409, 0)
+shape = SubResource("WorldBoundaryShape3D_0tnpc")
+
+[node name="smoke_puff" parent="." instance=ExtResource("10_vtaks")]
+
+[node name="diedsound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_kvpfn")
+
+[connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
+
+[editable path="Player"]
