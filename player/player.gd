@@ -17,10 +17,17 @@ extends CharacterBody3D
 @onready var pushed: AudioStreamPlayer = %pushed
 @onready var anim_player = $CollisionShape3D/SQUIBBOMOVING/AnimationPlayer
 @onready var anim_tree = $CollisionShape3D/SQUIBBOMOVING/AnimationTree
+@onready var melee_sound: AudioStreamPlayer3D = $MeleeSound
+@onready var camera_base_pos: Vector3 = camera.position
+@onready var sprint_sound: AudioStreamPlayer3D = $SprintSound
+
 
 var camera_pitch := 0.0
 var can_be_knocked_back := true
 var knockback_timer := Timer.new()
+var cam_shake_time := 0.0
+var cam_shake_strength := 0.03
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -48,8 +55,9 @@ func melee_attack():
 		print("HIT: nothing")
 
 func _input(event):
-	if event.is_action_pressed("hit"):
+	if event.is_action_pressed("hit") and is_on_floor():
 		melee_attack()
+		melee_sound.play()
 		anim_tree.set(
 			"parameters/oneshot/request",
 			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
@@ -80,14 +88,44 @@ func _physics_process(delta: float) -> void:
 		camera_pitch -= look_input.y * stick_look_sensitivity * delta * 1.0
 		camera_pitch = clamp(camera_pitch, -40.0, 40.0)
 		camera.rotation.x = camera_pitch
-
 	
-	# Only apply movement if we're not currently in knockback
-	if can_be_knocked_back:  # Normal movement
-		var is_sprinting = Input.is_action_pressed("sprint") and is_on_floor()
-		var s = speed * (2.0 if is_sprinting else 1.0)
+	# --- SPRINT STATE ---
+	var is_sprinting := Input.is_action_pressed("sprint") and is_on_floor()
+	if is_sprinting and anim_player.current_animation != "sprint_001":
+		anim_player.play("sprint_001")
+	elif not is_sprinting and anim_player.current_animation != "idle":
+		anim_player.play("idle")
+	
+# --- MOVEMENT SPEED (THIS IS THE IMPORTANT PART) ---
+	if can_be_knocked_back:
+		var s = speed * (1.8 if is_sprinting else 1.0)
 		velocity.x = direction.x * s
 		velocity.z = direction.z * s
+
+# --- SPRINT CAMERA + SOUND ---
+	if is_sprinting:
+	# Subtle camera shake
+		cam_shake_time += delta * 12.0
+		var offset = Vector3(
+			sin(cam_shake_time) * (cam_shake_strength * 0.8),
+			cos(cam_shake_time * 2.0) * (cam_shake_strength * 0.8),
+			0.0
+		)
+		camera.position = camera_base_pos + offset
+
+	# Sprint sound
+		if not sprint_sound.playing:
+			sprint_sound.play()
+	else:
+	# Reset camera
+		cam_shake_time = 0.0
+		camera.position = camera.position.lerp(camera_base_pos, 8.0 * delta)
+
+	# Stop sprint sound
+		if sprint_sound.playing:
+			sprint_sound.stop()
+
+
 
 	# Gravity
 	if not is_on_floor():

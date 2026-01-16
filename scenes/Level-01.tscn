@@ -1,19 +1,29 @@
-[gd_scene load_steps=21 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=27 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
+[ext_resource type="Script" uid="uid://dy4k1iwictuwa" path="res://scenes/horizontal-platform.gd" id="2_6d86h"]
 [ext_resource type="PackedScene" uid="uid://b4gg5f4u2kib2" path="res://mob/spawner/mob_spawner_3d.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="3_p57ef"]
 [ext_resource type="Material" uid="uid://cmdsmvuubw5ic" path="res://mats/ground mat.tres" id="3_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://dbnbw4iyhq7h5" path="res://music/qwantani_moonrise_puresky_4k.exr" id="4_p57ef"]
+[ext_resource type="AudioStream" uid="uid://d2xc7xfis67di" path="res://music/whoosh-sounds-effects-no-copyright_U5pYAPLg.mp3" id="5_ax706"]
 [ext_resource type="AudioStream" uid="uid://dq3n2uxmgjnvg" path="res://music/track 1.mp3" id="5_iywne"]
+[ext_resource type="Script" uid="uid://by10tsrcvvdvk" path="res://scenes/vertical-platform.gd" id="5_o60pi"]
 [ext_resource type="FontFile" uid="uid://b112wkvshlubj" path="res://mats/Steak Melt.otf" id="7_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://3782uhh108ma" path="res://music/W-SFX.mp3" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="10_vtaks"]
-[ext_resource type="AudioStream" uid="uid://fphqp666i44v" path="res://music/damn.mp3" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bb3rd6wkl3myp" path="res://scenes/pickup.tscn" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://c0eitjxgsw042" path="res://scenes/level_exit.gd" id="13_2qjjm"]
+[ext_resource type="AudioStream" uid="uid://degkea44kx5mj" path="res://music/DEADSOUND.mp3" id="14_o60pi"]
 [ext_resource type="AudioStream" uid="uid://b7sgly3dwkhqd" path="res://music/ah-st-here-we-go-again-gta-trilogy-vs-original_hlZuDqUg.mp3" id="14_wgslm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ax706"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6d86h"]
+size = Vector3(0.7055664, 1.3671875, 0.89282227)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6d86h"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("4_p57ef")
@@ -42,11 +52,18 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Level-1" type="Node3D" groups=["game"]]
 script = ExtResource("1_gee14")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.958672, -5.5999994, 39.12333)
-use_collision = true
-size = Vector3(19.264355, 10, 3.3143005)
-material = ExtResource("1_p57ef")
+[node name="CSGBox3D" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.866812, -3.8451166, 39.12333)
+script = ExtResource("2_6d86h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D"]
+transform = Transform3D(6.7448654, 0, 0, 0, 2.03269, 0, 0, 0, 8.7689085, 0, 2.1811483, 0)
+mesh = SubResource("BoxMesh_ax706")
+surface_material_override/0 = ExtResource("1_p57ef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D"]
+transform = Transform3D(10, 0, 0, 0, 1.1200297, 0, 0, 0, 10, 0.021972656, 2.3867788, -0.01586914)
+shape = SubResource("BoxShape3D_6d86h")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.928251, -5.5999994, 39.12333)
@@ -114,20 +131,32 @@ use_collision = true
 size = Vector3(19.763496, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
+[node name="CSGBox3D19" type="AnimatableBody3D" parent="."]
+transform = Transform3D(-0.999811, 0, 0.019441778, 0, 1, 0, -0.019441778, 0, -0.999811, 50.329468, -2.5999994, 5.6231346)
+script = ExtResource("5_o60pi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D19"]
+transform = Transform3D(18.11803, 0, 5.9604645e-08, 0, 1, 0, 2.9802322e-08, 0, 12.950462, 0, 0, 0)
+mesh = SubResource("BoxMesh_6d86h")
+surface_material_override/0 = ExtResource("1_p57ef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D19"]
+
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
-transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
+transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.9664277, 38.996075)
 
 [node name="Skeleton3D" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.010129948, -0.40828595, 0.03972665)
-bones/3/rotation = Quaternion(-0.31999618, 0.0040563685, -0.06658442, 0.94506747)
-bones/6/rotation = Quaternion(-0.35136953, 0.010736942, 0.4324958, 0.8302841)
-bones/9/rotation = Quaternion(-0.28748825, 0.11346215, 0.0037934268, 0.95103234)
-bones/12/rotation = Quaternion(0.039963562, 0.011825843, -0.25173503, 0.96689844)
-bones/15/rotation = Quaternion(-0.04465868, 0.0011986948, -0.19767284, 0.9792496)
-bones/18/rotation = Quaternion(0.0016272254, 0.00038992034, -0.00041753764, 0.9999985)
+bones/0/position = Vector3(0.005023231, -0.23968904, 0.019409057)
+bones/3/rotation = Quaternion(-0.18503454, 0.00049585494, -0.054298352, 0.98123074)
+bones/6/rotation = Quaternion(-0.20599544, 0.017448401, 0.27047518, 0.94026834)
+bones/9/rotation = Quaternion(-0.1695983, 0.120267496, 0.018852405, 0.9779656)
+bones/12/position = Vector3(0.005227922, 0.9163887, -0.009561187)
+bones/12/rotation = Quaternion(0.016884595, 0.00077504094, -0.27776623, 0.96049994)
+bones/15/rotation = Quaternion(-0.0064518787, 0.00014643592, -0.071809284, 0.9973975)
+bones/18/rotation = Quaternion(0.03852732, 4.8090078e-05, 0.012934707, 0.9991739)
 
 [node name="Bone" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.010129948, -0.40828595, 0.03972665)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.005023231, -0.23968904, 0.019409057)
 
 [node name="AnimationPlayer" parent="Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -137,6 +166,9 @@ transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.578013
 
 [node name="Target" parent="Player" index="5"]
 position = Vector2(938, 579)
+
+[node name="MeleeSound" type="AudioStreamPlayer3D" parent="Player"]
+stream = ExtResource("5_ax706")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
@@ -179,7 +211,7 @@ stream = ExtResource("9_0tnpc")
 volume_db = -10.496
 
 [node name="killplane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.069801, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.913103, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="killplane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.853409, 0)
@@ -189,7 +221,7 @@ shape = SubResource("WorldBoundaryShape3D_0tnpc")
 
 [node name="diedsound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("11_kvpfn")
+stream = ExtResource("14_o60pi")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, 6.1174498)

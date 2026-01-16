@@ -28,7 +28,7 @@ func _on_mob_spawned(mob: Node3D):
 func _on_killplane_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		diedsound.play()
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(3.0).timeout
 		get_tree().reload_current_scene()
 		
 	elif "zombie" in str(body.name):  # Changed this line

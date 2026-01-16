@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cak5ek7awuh3k"]
+
+[ext_resource type="Script" uid="uid://cauxecspuvhdr" path="res://scenes/title_screen.gd" id="1_ch40n"]
+[ext_resource type="VideoStream" uid="uid://cbsv8f8pkm77c" path="res://assets/0001-0250.ogv" id="1_qyuap"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ch40n")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(30, 30)
+pivot_offset = Vector2(-5, 0)
+stream = ExtResource("1_qyuap")
+autoplay = true
+expand = true
+loop = true
