@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0brlijte8duq"]
+[gd_scene load_steps=18 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
@@ -35,7 +35,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0tnpc"]
 
-[node name="Game" type="Node3D" groups=["game"]]
+[node name="Level-1" type="Node3D" groups=["game"]]
 script = ExtResource("1_gee14")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]

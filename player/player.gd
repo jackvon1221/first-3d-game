@@ -7,7 +7,8 @@ extends CharacterBody3D
 @export var pitch_sensitivity := 0.15
 @export var knockback_strength := 10.0  # How strong the knockback is
 @export var knockback_cooldown := 0.5    # Seconds between knockbacks
-
+@export var stick_look_sensitivity := 2.5
+@export var stick_deadzone := 0.15
 @onready var jumpsound: AudioStreamPlayer = %jumpsound
 @onready var shoot_sound: AudioStreamPlayer = %AudioStreamPlayer
 @onready var shoot_timer: Timer = %Timer
@@ -40,6 +41,19 @@ func _physics_process(delta: float) -> void:
 	# Player movement
 	var input_dir = Input.get_vector("move_left","move_right","move_forward","move_backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var look_input := Input.get_vector(
+		"look_left",
+		"look_right",
+		"look_up",
+		"look_down"
+	)	
+	if look_input.length() > stick_deadzone:
+		rotation.y -= look_input.x * stick_look_sensitivity * delta * 1.0
+	
+		camera_pitch -= look_input.y * stick_look_sensitivity * delta * 1.0
+		camera_pitch = clamp(camera_pitch, -40.0, 40.0)
+		camera.rotation.x = camera_pitch
+
 	
 	# Only apply movement if we're not currently in knockback
 	if can_be_knocked_back:  # Normal movement

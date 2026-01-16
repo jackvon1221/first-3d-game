@@ -18,13 +18,15 @@ var death_rotation_speed = 0.0
 @onready var hurtsound: AudioStreamPlayer3D = $hurtsound
 @onready var k_osound: AudioStreamPlayer3D = $KOsound
 @onready var floor_ray: RayCast3D = $FloorRay
-@onready var player = get_node("/root/Game/Player")
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 func _ready():
 	pass
 
 func _physics_process(delta):
+	if not is_instance_valid(player):
+		return
 	if is_dead:
 		_death_physics(delta)
 		return
