@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d31xeqshwef5l"]
+[gd_scene load_steps=20 format=3 uid="uid://d31xeqshwef5l"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_lnpcq"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="2_deele"]
@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://b4gg5f4u2kib2" path="res://mob/spawner/mob_spawner_3d.tscn" id="7_j6iq2"]
 [ext_resource type="FontFile" uid="uid://b112wkvshlubj" path="res://mats/Steak Melt.otf" id="8_rctcc"]
 [ext_resource type="AudioStream" uid="uid://3782uhh108ma" path="res://music/W-SFX.mp3" id="9_5vymw"]
-[ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="10_xsfqr"]
 [ext_resource type="AudioStream" uid="uid://fphqp666i44v" path="res://music/damn.mp3" id="11_sq7ul"]
 [ext_resource type="PackedScene" uid="uid://bb3rd6wkl3myp" path="res://scenes/pickup.tscn" id="12_8142k"]
+[ext_resource type="Script" uid="uid://c0eitjxgsw042" path="res://scenes/level_exit.gd" id="13_deele"]
+[ext_resource type="AudioStream" uid="uid://csao8ynohoqsq" path="res://music/Kids Cheering - Sound Effect (HD).mp3" id="13_ojkua"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("5_jvdul")
@@ -37,7 +38,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lnpcq"]
 
-[node name="Level-1" type="Node3D" groups=["game"]]
+[node name="Level-" type="Node3D" groups=["game"]]
 script = ExtResource("1_lnpcq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -52,47 +53,11 @@ use_collision = true
 size = Vector3(16.59856, 10, 3.3143005)
 material = ExtResource("2_deele")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.025496516, 0, -0.9996749, 0, 1, 0, 0.9996749, 0, -0.025496516, -23.39384, -5.5999994, 28.0894)
-use_collision = true
-size = Vector3(14.051111, 10, 3.3143005)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.99991024, 0, 0.013403691, 0, 1, 0, -0.013403691, 0, -0.99991024, -6.870722, -5.5999994, -26.153444)
-use_collision = true
-size = Vector3(19.69743, 10, 3.3143005)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.99991024, 0, 0.013403691, 0, 1, 0, -0.013403691, 0, -0.99991024, 17.0136, -5.5999994, -26.153444)
-use_collision = true
-size = Vector3(19.69743, 10, 3.3143005)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="."]
-transform = Transform3D(0.017975919, 0, 0.99983853, 0, 1, 0, -0.99983853, 0, 0.017975919, 24.856836, -5.5999994, -12.012391)
-use_collision = true
-size = Vector3(19.69743, 10, 3.3143005)
-material = ExtResource("2_deele")
-
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, 14.849377)
 use_collision = true
 size = Vector3(9.791651, 4.5117188, 6.3188286)
 material = ExtResource("2_deele")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, -2.3568468)
-use_collision = true
-size = Vector3(9.791651, 4.5117188, 6.3188286)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.471252, -2.5999994, 39.732224)
-use_collision = true
-size = Vector3(10.003555, 4, 16.935913)
-material = ExtResource("3_ojkua")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 39.117138)
@@ -101,15 +66,9 @@ size = Vector3(8.773384, 4, 16.935913)
 material = ExtResource("3_ojkua")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.973022, -2.5999994, -18.239838)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.001003, -2.5999994, 39.117138)
 use_collision = true
-size = Vector3(19.763496, 4, 10.274078)
-material = ExtResource("3_ojkua")
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.999811, 0, 0.019441778, 0, 1, 0, -0.019441778, 0, -0.999811, 24.31137, -2.5999994, 5.6231346)
-use_collision = true
-size = Vector3(19.763496, 4, 10.274078)
+size = Vector3(8.773384, 4, 20.875671)
 material = ExtResource("3_ojkua")
 
 [node name="Player" parent="." instance=ExtResource("4_nvthn")]
@@ -121,12 +80,12 @@ transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.578013
 [node name="Target" parent="Player" index="5"]
 position = Vector2(938, 579)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
-shadow_enabled = true
-
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.40082255, -0.6130774, -0.6807917, 0.80963206, -0.58480775, 0.049962174, -0.42876294, -0.53116465, 0.73077106, 0.66583824, -0.044029713, 140.12787)
+shadow_enabled = true
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.45851225, 0.57704204, -0.6758617, 0.809632, -0.58480775, 0.0499621, -0.36641887, -0.5701074, -0.73533314, 15.708406, -0.044029713, -45.61476)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -139,12 +98,6 @@ parameters/looping = true
 
 [node name="MobSpawner3D5" parent="." instance=ExtResource("7_j6iq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6959229, -1.6927261, 39.180073)
-
-[node name="MobSpawner3D6" parent="." instance=ExtResource("7_j6iq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.56801, -1.6927261, -12.075535)
-
-[node name="MobSpawner3D7" parent="." instance=ExtResource("7_j6iq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.56801, -1.6927261, -26.257349)
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
@@ -168,8 +121,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.069801, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.853409, 0)
 shape = SubResource("WorldBoundaryShape3D_0tnpc")
 
-[node name="smoke_puff" parent="." instance=ExtResource("10_xsfqr")]
-
 [node name="diedsound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_sq7ul")
@@ -183,18 +134,18 @@ material = ExtResource("2_deele")
 [node name="Pickup" parent="." instance=ExtResource("12_8142k")]
 transform = Transform3D(0.026363257, 0, -0.39913028, 0, 0.4, 0, 0.39913028, 0, 0.026363257, -17.388195, 0.18286085, 39.60804)
 
-[node name="Pickup2" parent="." instance=ExtResource("12_8142k")]
-transform = Transform3D(-0.3939449, 0, -0.069335476, 0, 0.4, 0, 0.069335476, 0, -0.3939449, -23.509748, 0.18286085, 5.9111376)
-
-[node name="Pickup3" parent="." instance=ExtResource("12_8142k")]
-transform = Transform3D(0.39078996, 0, 0.08534171, 0, 0.39999998, 0, -0.08534171, 0, 0.39078996, 22.42071, 0.18286085, 5.9111376)
-
 [node name="LevelExit" type="Area3D" parent="."]
 transform = Transform3D(1.7038535, 0.19521412, 0, -0.19521412, 1.7038535, 0, 0, 0, 1.715, 22.384323, 0, 6.04574)
+script = ExtResource("13_deele")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit"]
 shape = SubResource("SphereShape3D_lnpcq")
 
+[node name="ExitSound" type="AudioStreamPlayer" parent="LevelExit"]
+unique_name_in_owner = true
+stream = ExtResource("13_ojkua")
+
 [connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
+[connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
 
 [editable path="Player"]

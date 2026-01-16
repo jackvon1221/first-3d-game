@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=21 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mob/smoke_puff/smoke_puff.tscn" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://fphqp666i44v" path="res://music/damn.mp3" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bb3rd6wkl3myp" path="res://scenes/pickup.tscn" id="12_dinhu"]
+[ext_resource type="Script" uid="uid://c0eitjxgsw042" path="res://scenes/level_exit.gd" id="13_2qjjm"]
+[ext_resource type="AudioStream" uid="uid://b7sgly3dwkhqd" path="res://music/ah-st-here-we-go-again-gta-trilogy-vs-original_hlZuDqUg.mp3" id="14_wgslm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("4_p57ef")
@@ -34,6 +36,8 @@ outline_size = 9
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0tnpc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2qjjm"]
 
 [node name="Level-1" type="Node3D" groups=["game"]]
 script = ExtResource("1_gee14")
@@ -185,8 +189,20 @@ transform = Transform3D(0.026363257, 0, -0.39913028, 0, 0.4, 0, 0.39913028, 0, 0
 transform = Transform3D(-0.3939449, 0, -0.069335476, 0, 0.4, 0, 0.069335476, 0, -0.3939449, -23.509748, 0.18286085, 5.9111376)
 
 [node name="Pickup3" parent="." instance=ExtResource("12_dinhu")]
-transform = Transform3D(0.39078996, 0, 0.08534171, 0, 0.39999998, 0, -0.08534171, 0, 0.39078996, 22.42071, 0.18286085, 5.9111376)
+transform = Transform3D(0.39078996, 0, 0.08534171, 0, 0.39999998, 0, -0.08534171, 0, 0.39078996, 24.631124, 0.18286085, 6.589804)
+
+[node name="LevelExit" type="Area3D" parent="."]
+transform = Transform3D(1.7038535, 0.19521412, 0, -0.19521412, 1.7038535, 0, 0, 0, 1.715, 43.551258, 0.24641073, 38.04153)
+script = ExtResource("13_2qjjm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit"]
+transform = Transform3D(0.9999993, 2.2351742e-08, 0, -2.2351742e-08, 0.9999993, 0, 0, 0, 0.9999993, -11.088727, -1.2704601, -18.43382)
+shape = SubResource("SphereShape3D_2qjjm")
+
+[node name="ExitSound" type="AudioStreamPlayer" parent="LevelExit"]
+stream = ExtResource("14_wgslm")
 
 [connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
+[connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
 
 [editable path="Player"]
