@@ -27,15 +27,35 @@ func _ready():
 	add_child(knockback_timer)
 	knockback_timer.one_shot = true
 	knockback_timer.timeout.connect(_on_knockback_cooldown_timeout)
-	
+func melee_attack():
+	print("MELEE ATTACK FIRED")
+
+	var space = get_world_3d().direct_space_state
+	var from = global_transform.origin + Vector3.UP * 1.0
+	var to = from + (-global_transform.basis.z * 2.5)
+
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+
+	var result = space.intersect_ray(query)
+
+	if result:
+		var hit = result.collider
+		print("HIT:", hit.name)
+
+		if hit.has_method("take_damage"):
+			hit.take_damage()
+	else:
+		print("HIT: nothing")
+
 func _input(event):
 	if event.is_action_pressed("hit"):
-		print("HIT INPUT FIRED")
+		melee_attack()
 		anim_tree.set(
 			"parameters/oneshot/request",
 			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		)
-		
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
