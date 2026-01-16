@@ -57,7 +57,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Only apply movement if we're not currently in knockback
 	if can_be_knocked_back:  # Normal movement
-		var s = speed * (2.0 if Input.is_action_pressed("sprint") else 1.0)
+		var is_sprinting = Input.is_action_pressed("sprint") and is_on_floor()
+		var s = speed * (2.0 if is_sprinting else 1.0)
 		velocity.x = direction.x * s
 		velocity.z = direction.z * s
 
@@ -91,7 +92,9 @@ func _physics_process(delta: float) -> void:
 				pushed.play()
 			
 			# Calculate direction away from zombie
-			var knockback_direction = (global_position - col.global_position).normalized()
+			var knockback_direction = global_position - col.global_position
+			knockback_direction.y = 0
+			wknockback_direction = knockback_direction.normalized()
 			
 			# Apply knockback - horizontal push
 			velocity.x = knockback_direction.x * knockback_strength
