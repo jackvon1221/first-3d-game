@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://d31xeqshwef5l"]
+[gd_scene load_steps=21 format=3 uid="uid://d31xeqshwef5l"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_lnpcq"]
-[ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="2_deele"]
-[ext_resource type="Material" uid="uid://cmdsmvuubw5ic" path="res://mats/ground mat.tres" id="3_ojkua"]
+[ext_resource type="Texture2D" uid="uid://bxe4s4061h61j" path="res://mats/ts9a_0uup_231020.jpg" id="2_lnpcq"]
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="4_nvthn"]
 [ext_resource type="Texture2D" uid="uid://dbnbw4iyhq7h5" path="res://music/qwantani_moonrise_puresky_4k.exr" id="5_jvdul"]
 [ext_resource type="AudioStream" uid="uid://dq3n2uxmgjnvg" path="res://music/track 1.mp3" id="6_yr6fl"]
@@ -13,6 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://bb3rd6wkl3myp" path="res://scenes/pickup.tscn" id="12_8142k"]
 [ext_resource type="Script" uid="uid://c0eitjxgsw042" path="res://scenes/level_exit.gd" id="13_deele"]
 [ext_resource type="AudioStream" uid="uid://csao8ynohoqsq" path="res://music/Kids Cheering - Sound Effect (HD).mp3" id="13_ojkua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deele"]
+albedo_color = Color(0.94257057, 0.90096676, 0.22844365, 1)
+albedo_texture = ExtResource("2_lnpcq")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojkua"]
+albedo_color = Color(0.1756298, 0.9563734, 0, 1)
+albedo_texture = ExtResource("2_lnpcq")
+uv1_triplanar = true
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("5_jvdul")
@@ -45,31 +54,19 @@ script = ExtResource("1_lnpcq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.958672, -5.5999994, 39.12333)
 use_collision = true
 size = Vector3(19.264355, 10, 3.3143005)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.928251, -5.5999994, 39.12333)
-use_collision = true
-size = Vector3(16.59856, 10, 3.3143005)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, 14.849377)
-use_collision = true
-size = Vector3(9.791651, 4.5117188, 6.3188286)
-material = ExtResource("2_deele")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 39.117138)
-use_collision = true
-size = Vector3(8.773384, 4, 16.935913)
-material = ExtResource("3_ojkua")
+material = SubResource("StandardMaterial3D_deele")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.001003, -2.5999994, 39.117138)
 use_collision = true
 size = Vector3(8.773384, 4, 20.875671)
-material = ExtResource("3_ojkua")
+material = SubResource("StandardMaterial3D_ojkua")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.960373, -2.5999994, 39.117138)
+use_collision = true
+size = Vector3(8.773384, 4, 33.221893)
+material = SubResource("StandardMaterial3D_ojkua")
 
 [node name="Player" parent="." instance=ExtResource("4_nvthn")]
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
@@ -124,12 +121,6 @@ shape = SubResource("WorldBoundaryShape3D_0tnpc")
 [node name="diedsound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_sq7ul")
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.992018, -2.7094007, 6.1174498)
-use_collision = true
-size = Vector3(9.791651, 4.5117188, 6.3188286)
-material = ExtResource("2_deele")
 
 [node name="Pickup" parent="." instance=ExtResource("12_8142k")]
 transform = Transform3D(0.026363257, 0, -0.39913028, 0, 0.4, 0, 0.39913028, 0, 0.026363257, -17.388195, 0.18286085, 39.60804)
