@@ -117,6 +117,21 @@ material = ExtResource("3_u5sy4")
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
 
+[node name="Skeleton3D" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
+bones/0/position = Vector3(-0.010129948, -0.40828595, 0.03972665)
+bones/3/rotation = Quaternion(-0.31999618, 0.0040563685, -0.06658442, 0.94506747)
+bones/6/rotation = Quaternion(-0.35136953, 0.010736942, 0.4324958, 0.8302841)
+bones/9/rotation = Quaternion(-0.28748825, 0.11346215, 0.0037934268, 0.95103234)
+bones/12/rotation = Quaternion(0.039963562, 0.011825843, -0.25173503, 0.96689844)
+bones/15/rotation = Quaternion(-0.04465868, 0.0011986948, -0.19767284, 0.9792496)
+bones/18/rotation = Quaternion(0.0016272254, 0.00038992034, -0.00041753764, 0.9999985)
+
+[node name="Bone" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.010129948, -0.40828595, 0.03972665)
+
+[node name="AnimationPlayer" parent="Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
+autoplay = ""
+
 [node name="Marker3D" parent="Player/Camera3D" index="0"]
 transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.5780138, -0.0003711427, 0.009133995, 0.12911391, 2.198833, -0.77152634, -1.071953, -4.0608215)
 
@@ -206,3 +221,4 @@ stream = ExtResource("14_wgslm")
 [connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
 
 [editable path="Player"]
+[editable path="Player/CollisionShape3D/SQUIBBOMOVING"]

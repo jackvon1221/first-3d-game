@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c40bh11xbdkv2"]
+[gd_scene load_steps=12 format=3 uid="uid://c40bh11xbdkv2"]
 
 [ext_resource type="Script" uid="uid://os6eky0rm3w2" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://ypktwikslyjq" path="res://scenes/IDLEANIMATION.tscn" id="2_g1dw6"]
@@ -9,6 +9,26 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g1dw6"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g6k8r"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_boad6"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rgyib"]
+break_loop_at_end = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hg6s5"]
+graph_offset = Vector2(-239.49266, 88.820435)
+nodes/output/position = Vector2(620, 300)
+"nodes/hit 2/node" = SubResource("AnimationNodeAnimation_g6k8r")
+"nodes/hit 2/position" = Vector2(140, 220)
+nodes/oneshot/node = SubResource("AnimationNodeOneShot_rgyib")
+nodes/oneshot/position = Vector2(320, 260)
+nodes/hit/node = SubResource("AnimationNodeAnimation_boad6")
+nodes/hit/position = Vector2(100, 400)
+node_connections = [&"output", 0, &"oneshot", &"oneshot", 0, &"hit 2", &"oneshot", 1, &"hit"]
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_rkbax")
 
@@ -18,6 +38,36 @@ shape = SubResource("SphereShape3D_g1dw6")
 
 [node name="SQUIBBOMOVING" parent="CollisionShape3D" instance=ExtResource("2_g1dw6")]
 transform = Transform3D(-0.36515662, 0, 0.2588002, 0, 0.2902786, 0, -0.19966066, 0, -0.47331595, 0, 0, 0)
+
+[node name="Skeleton3D" parent="CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
+bones/0/position = Vector3(-0.009380615, -0.39994884, 0.038721927)
+bones/1/rotation = Quaternion(-0.0005731715, 4.292873e-06, -0.00040345598, 0.9999998)
+bones/2/rotation = Quaternion(-0.89802796, -0.062744536, -0.16554154, 0.4027466)
+bones/3/rotation = Quaternion(-0.3148949, 0.0039201886, -0.066133745, 0.9468116)
+bones/5/rotation = Quaternion(0.669234, 0.26255777, 0.63450634, -0.28388557)
+bones/6/rotation = Quaternion(-0.3461459, 0.0110079115, 0.42671922, 0.8354475)
+bones/8/rotation = Quaternion(0.18668716, 0.4940617, 0.83941275, -0.12820801)
+bones/9/rotation = Quaternion(-0.2843309, 0.11365501, 0.0063026077, 0.9519448)
+bones/10/rotation = Quaternion(-0.00028361063, -0.082645655, 0.22268581, 0.97138083)
+bones/11/rotation = Quaternion(-0.43124476, 0.4599424, 0.7512131, -0.19534546)
+bones/12/position = Vector3(-1.3237191e-07, 0.92816633, 3.3344811e-09)
+bones/12/rotation = Quaternion(0.041234504, 0.011268727, -0.24829085, 0.96774197)
+bones/13/position = Vector3(3.9091532e-08, 0.46110243, -4.1759307e-09)
+bones/13/rotation = Quaternion(-0.1435553, 0.041407716, 0.056285243, 0.98717237)
+bones/14/rotation = Quaternion(0.8365414, -0.34619823, -0.37460783, -0.20003542)
+bones/15/rotation = Quaternion(-0.04319587, 0.0011583777, -0.19287063, 0.98027235)
+bones/17/rotation = Quaternion(-0.8250508, -0.025738828, 0.3833836, 0.41430163)
+bones/18/rotation = Quaternion(0.0026919018, 0.00038004018, -3.2297816e-05, 0.9999963)
+
+[node name="Bone" parent="CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.009380615, -0.39994884, 0.038721927)
+
+[node name="AnimationTree" type="AnimationTree" parent="CollisionShape3D/SQUIBBOMOVING"]
+tree_root = SubResource("AnimationNodeBlendTree_hg6s5")
+anim_player = NodePath("../AnimationPlayer")
+parameters/oneshot/active = false
+parameters/oneshot/internal_active = false
+parameters/oneshot/request = 0
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -51,3 +101,5 @@ texture = ExtResource("6_g6k8r")
 unique_name_in_owner = true
 stream = ExtResource("6_boad6")
 volume_db = -14.312
+
+[editable path="CollisionShape3D/SQUIBBOMOVING"]

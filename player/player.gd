@@ -15,6 +15,8 @@ extends CharacterBody3D
 @onready var camera: Camera3D = %Camera3D
 @onready var muzzle: Marker3D = %Marker3D
 @onready var pushed: AudioStreamPlayer = %pushed
+@onready var anim_player = $CollisionShape3D/SQUIBBOMOVING/AnimationPlayer
+@onready var anim_tree = $CollisionShape3D/SQUIBBOMOVING/AnimationTree
 
 var camera_pitch := 0.0
 var can_be_knocked_back := true
@@ -22,12 +24,18 @@ var knockback_timer := Timer.new()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	# Setup knockback cooldown timer
 	add_child(knockback_timer)
 	knockback_timer.one_shot = true
 	knockback_timer.timeout.connect(_on_knockback_cooldown_timeout)
-
+	
+func _input(event):
+	if event.is_action_pressed("hit"):
+		print("HIT INPUT FIRED")
+		anim_tree.set(
+			"parameters/oneshot/request",
+			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		)
+		
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
