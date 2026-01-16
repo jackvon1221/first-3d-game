@@ -28,7 +28,7 @@ func _ready():
 	knockback_timer.one_shot = true
 	knockback_timer.timeout.connect(_on_knockback_cooldown_timeout)
 func melee_attack():
-	print("MELEE ATTACK FIRED")
+	
 
 	var space = get_world_3d().direct_space_state
 	var from = global_transform.origin + Vector3.UP * 1.0
@@ -41,7 +41,6 @@ func melee_attack():
 
 	if result:
 		var hit = result.collider
-		print("HIT:", hit.name)
 
 		if hit.has_method("take_damage"):
 			hit.take_damage()
@@ -98,6 +97,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		jumpsound.play()
+		anim_tree.set(
+			"parameters/OneShot/request",
+			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		)
+
+	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
+		velocity.y = 0.0
+
 	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y = 0.0
 
