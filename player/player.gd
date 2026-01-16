@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 			# Calculate direction away from zombie
 			var knockback_direction = global_position - col.global_position
 			knockback_direction.y = 0
-			wknockback_direction = knockback_direction.normalized()
+			knockback_direction = knockback_direction.normalized()
 			
 			# Apply knockback - horizontal push
 			velocity.x = knockback_direction.x * knockback_strength

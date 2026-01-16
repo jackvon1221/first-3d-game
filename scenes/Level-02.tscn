@@ -51,34 +51,37 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_lnpcq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.958672, -5.5999994, 39.12333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.27029, -2.6458979, 39.12333)
 use_collision = true
-size = Vector3(19.264355, 10, 3.3143005)
+size = Vector3(3.9103756, 4.091797, 3.3143005)
+material = SubResource("StandardMaterial3D_deele")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.39997, -2.6458979, 39.12333)
+use_collision = true
+size = Vector3(3.9103756, 4.091797, 3.3143005)
+material = SubResource("StandardMaterial3D_deele")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99992645, 0.012129741, 0, -0.012129741, 0.99992645, 17.434534, -2.6458979, 39.12333)
+use_collision = true
+size = Vector3(3.9103756, 4.091797, 3.3143005)
 material = SubResource("StandardMaterial3D_deele")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.001003, -2.5999994, 39.117138)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.001003, -2.5999994, 39.10176)
 use_collision = true
-size = Vector3(8.773384, 4, 20.875671)
+size = Vector3(3.540514, 4, 20.875671)
 material = SubResource("StandardMaterial3D_ojkua")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.960373, -2.5999994, 39.117138)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.038742065, -2.5999994, 39.117138)
 use_collision = true
-size = Vector3(8.773384, 4, 33.221893)
+size = Vector3(8.773384, 4, 26.773952)
 material = SubResource("StandardMaterial3D_ojkua")
 
 [node name="Player" parent="." instance=ExtResource("4_nvthn")]
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.54179907, 38.996075)
-speed = null
-gravity = null
-jump_velocity = null
-mouse_sensitivity = null
-pitch_sensitivity = null
-knockback_strength = null
-knockback_cooldown = null
-stick_look_sensitivity = null
-stick_deadzone = null
 
 [node name="Marker3D" parent="Player/Camera3D" index="0"]
 transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.5780138, -0.0003711427, 0.009133995, 0.12911391, 2.198833, -0.77152634, -1.071953, -4.0608215)
@@ -87,7 +90,7 @@ transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.578013
 position = Vector2(938, 579)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.40082255, -0.6130774, -0.6807917, 0.80963206, -0.58480775, 0.049962174, -0.42876294, -0.53116465, 0.73077106, 0.66583824, -0.044029713, 140.12787)
+transform = Transform3D(-0.5558411, -0.7912893, -0.25475857, 0.80963147, -0.58480847, 0.04995894, -0.1885149, -0.17849343, 0.96571326, 0.66583824, -0.044029713, 140.12787)
 shadow_enabled = true
 
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
@@ -103,7 +106,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="MobSpawner3D5" parent="." instance=ExtResource("7_j6iq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6959229, -1.6927261, 39.180073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.032267, -1.6927261, 39.180073)
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
