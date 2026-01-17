@@ -34,6 +34,13 @@ func _ready():
 	add_child(knockback_timer)
 	knockback_timer.one_shot = true
 	knockback_timer.timeout.connect(_on_knockback_cooldown_timeout)
+func rumble_hit():
+	if Input.get_connected_joypads().size() == 0:
+		return
+
+	var device := Input.get_connected_joypads()[0]
+	Input.start_joy_vibration(device, 0.3, 0.8, 0.15)
+
 func melee_attack():
 	
 
@@ -51,6 +58,7 @@ func melee_attack():
 
 		if hit.has_method("take_damage"):
 			hit.take_damage()
+			rumble_hit()
 	else:
 		print("HIT: nothing")
 

@@ -4,6 +4,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		$PickupSound.play()
 
+		# NEW: rumble on pickup
+		var player = get_tree().get_first_node_in_group("player")
+		if player and player.has_method("rumble_hit"):
+			player.rumble_hit()
+
+
 		var game = get_tree().get_first_node_in_group("game")
 		if game:
 			game.do_poof(global_position)
