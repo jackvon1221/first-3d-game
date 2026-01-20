@@ -5,6 +5,7 @@ extends Node3D
 @onready var diedsound: AudioStreamPlayer = %diedsound
 
 
+
 func _ready():
 	# Make sure the label shows the carried-over score
 	update_score_label()
