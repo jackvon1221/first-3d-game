@@ -5,7 +5,6 @@ extends Node3D
 @onready var diedsound: AudioStreamPlayer = %diedsound
 
 
-
 func _ready():
 	# Make sure the label shows the carried-over score
 	update_score_label()
@@ -13,7 +12,9 @@ func _ready():
 
 func add_point_from_pickup():
 	GameManager.score += 1
+	GameManager.level_score += 1
 	update_score_label()
+
 	if GameManager.score % 10 == 0:
 		ten_point_sound.play()
 
@@ -40,6 +41,11 @@ func _on_killplane_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
 		diedsound.play()
 		await get_tree().create_timer(3.0).timeout
+
+		# Roll back points earned in this level
+		GameManager.score -= GameManager.level_score
+		GameManager.level_score = 0
+
 		get_tree().reload_current_scene()
 
 	elif "zombie" in str(body.name):

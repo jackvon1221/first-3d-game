@@ -1,5 +1,7 @@
 extends Area3D
 
+@export_file("*.tscn") var next_level_path
+
 @onready var exit_sound = $ExitSound
 var triggered := false
 
@@ -10,6 +12,11 @@ func _on_body_entered(body):
 		triggered = true
 		if exit_sound:
 			exit_sound.play()
-		# Give the sound time to play
 		await get_tree().create_timer(0.9).timeout
-		get_tree().change_scene_to_file("res://scenes/Level-02.tscn")
+
+		GameManager.level_score = 0
+
+		if next_level_path != "":
+			get_tree().change_scene_to_file(next_level_path)
+		else:
+			push_error("No next level set on exit!")

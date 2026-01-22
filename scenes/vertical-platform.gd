@@ -1,6 +1,6 @@
 extends AnimatableBody3D
 
-@export var speed := 2.0
+@export var speed := 3.0
 @export var distance := 4.5
 
 var start_pos: Vector3

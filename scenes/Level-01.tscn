@@ -26,7 +26,7 @@ size = Vector3(0.7055664, 1.3671875, 0.89282227)
 [sub_resource type="BoxMesh" id="BoxMesh_6d86h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o60pi"]
-size = Vector3(1.1763458, 0.06665039, 0.49734497)
+size = Vector3(1.1880684, 0.06665039, 0.49734497)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u5sy4"]
 panorama = ExtResource("4_p57ef")
@@ -75,9 +75,9 @@ size = Vector3(16.59856, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.025496516, 0, -0.9996749, 0, 1, 0, 0.9996749, 0, -0.025496516, -20.233032, -5.5999994, 27.014002)
+transform = Transform3D(-0.02982778, 0, -0.9955178, 0, 1, 0, 1.1694964, 0, -0.02539049, -20.232574, -5.5999994, 26.627247)
 use_collision = true
-size = Vector3(16.362387, 10, 9.579025)
+size = Vector3(19.105612, 10, 9.579025)
 material = ExtResource("1_p57ef")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
@@ -99,9 +99,9 @@ size = Vector3(8.773384, 4, 16.935913)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.60807, -2.5999994, -13.238289)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.60807, -2.5999994, -12.76095)
 use_collision = true
-size = Vector3(19.763496, 4, 10.274078)
+size = Vector3(20.718174, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="."]
@@ -111,33 +111,33 @@ size = Vector3(19.763496, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
 [node name="CSGBox3D19" type="AnimatableBody3D" parent="."]
-transform = Transform3D(-0.999811, 0, 0.019441778, 0, 1, 0, -0.019441778, 0, -0.999811, 49.45784, 3.217144, 5.6231346)
+transform = Transform3D(-1.1162474, 0, 0.002962592, 0, 1.1960833, 0, -0.003312019, 0, -0.9984794, 55.547455, 3.217144, 5.144785)
 script = ExtResource("5_o60pi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D19"]
-transform = Transform3D(23.639868, 0, 2.9802322e-08, 0, 1, 0, -5.9604645e-08, 0, 9.848179, 49.525852, 0, 14.886864)
+transform = Transform3D(23.63987, 0, 4.4703484e-08, 0, 1, 0, -1.1920929e-07, 0, 9.84818, 49.95525, 0, 14.877904)
 mesh = SubResource("BoxMesh_6d86h")
 surface_material_override/0 = ExtResource("1_p57ef")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D19"]
-transform = Transform3D(19.999996, 0, -6.4074993e-06, 0, 20, 0, 6.4074993e-06, 0, 19.999996, 49.6046, -0.1642685, 14.917378)
+transform = Transform3D(19.999996, 0, -6.340444e-06, 0, 20, 0, 6.0275197e-06, 0, 19.999899, 49.928497, -0.1642685, 14.917379)
 shape = SubResource("BoxShape3D_o60pi")
 
 [node name="Player" parent="." instance=ExtResource("3_p57ef")]
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.9664277, 38.996075)
 
 [node name="Skeleton3D" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.0049830107, -0.35102022, 0.03282556)
-bones/3/rotation = Quaternion(-0.2753702, 0.0028694053, -0.06260437, 0.95929337)
-bones/6/rotation = Quaternion(-0.30475882, 0.013069257, 0.3808215, 0.8728839)
-bones/9/rotation = Quaternion(-0.24831611, 0.11594084, 0.008758526, 0.96167576)
-bones/12/position = Vector3(0.030212212, 0.86010426, -0.055253323)
-bones/12/rotation = Quaternion(-0.09378895, -0.052979097, -0.39551905, 0.9121193)
-bones/15/rotation = Quaternion(-0.03191578, 0.00084767403, -0.15579395, 0.9872735)
-bones/18/rotation = Quaternion(0.013746901, 0.0002777117, 0.0039677583, 0.99989766)
+bones/0/position = Vector3(0.00062930956, -0.28857654, 0.025300486)
+bones/3/rotation = Quaternion(-0.22491482, 0.0015389945, -0.058005266, 0.97264916)
+bones/6/rotation = Quaternion(-0.25008363, 0.015580616, 0.31986606, 0.91372925)
+bones/9/rotation = Quaternion(-0.204311, 0.11846468, 0.0144342, 0.9716042)
+bones/12/position = Vector3(0.016198998, 0.8916732, -0.029625429)
+bones/12/rotation = Quaternion(-0.031707685, -0.02285507, -0.3306142, 0.9429563)
+bones/15/rotation = Quaternion(-0.017643139, 0.00045461822, -0.10876871, 0.9939105)
+bones/18/rotation = Quaternion(0.02764877, 0.00014894173, 0.008998182, 0.9995772)
 
 [node name="Bone" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0049830107, -0.35102022, 0.03282556)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.00062930956, -0.28857654, 0.025300486)
 
 [node name="AnimationPlayer" parent="Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -204,12 +204,10 @@ transform = Transform3D(0.026363257, 0, -0.39913028, 0, 0.4, 0, 0.39913028, 0, 0
 [node name="Pickup2" parent="." instance=ExtResource("12_dinhu")]
 transform = Transform3D(-0.3939449, 0, -0.069335476, 0, 0.4, 0, 0.069335476, 0, -0.3939449, -20.86689, 0.18286085, 26.387089)
 
-[node name="Pickup3" parent="." instance=ExtResource("12_dinhu")]
-transform = Transform3D(-0.07016479, 0, 0.4143364, 0, 0.65139544, 0, -0.53116375, 0, -0.05473233, 28.630175, 8.942125, -10.593852)
-
 [node name="LevelExit" type="Area3D" parent="."]
 transform = Transform3D(1.7038535, 0.19521412, 0, -0.19521412, 1.7038535, 0, 0, 0, 1.715, 49.010933, 9.005674, 38.04153)
 script = ExtResource("13_2qjjm")
+next_level_path = "uid://d31xeqshwef5l"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit"]
 transform = Transform3D(0.99999887, 2.2351742e-08, 0, -2.2351742e-08, 0.99999887, 0, 0, 0, 0.9953321, -11.934865, -1.3674047, -28.280792)
@@ -217,6 +215,9 @@ shape = SubResource("SphereShape3D_2qjjm")
 
 [node name="ExitSound" type="AudioStreamPlayer" parent="LevelExit"]
 stream = ExtResource("14_wgslm")
+
+[node name="Pickup3" parent="LevelExit" instance=ExtResource("12_dinhu")]
+transform = Transform3D(-0.0406465, -0.043234218, 0.2400253, -0.004656956, 0.37735373, 0.02750021, -0.30971643, 0, -0.03191389, -11.802366, -1.3895197, -28.358822)
 
 [connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
 [connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
