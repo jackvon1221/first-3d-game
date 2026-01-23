@@ -148,17 +148,17 @@ transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12
 transform = Transform3D(0.8940262, 0, 0.4699118, 0, 1.01, 0, -0.4699118, 0, 0.8940262, -0.049232483, 0.75520515, 0.47982407)
 
 [node name="Skeleton3D" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.00972524, -0.4037832, 0.039184004)
-bones/3/rotation = Quaternion(-0.3176373, 0.003993379, -0.06637617, 0.94587785)
-bones/6/rotation = Quaternion(-0.34895778, 0.010862379, 0.42982918, 0.8326808)
-bones/9/rotation = Quaternion(-0.28608578, 0.113547154, 0.005038444, 0.95143926)
-bones/12/position = Vector3(0.042052902, 0.8334296, -0.0769081)
-bones/12/rotation = Quaternion(-0.14502317, -0.0777828, -0.4468152, 0.8793602)
-bones/15/rotation = Quaternion(-0.04398206, 0.001180039, -0.19545177, 0.97972596)
-bones/18/rotation = Quaternion(0.0020525048, 0.00038597378, -0.00026365335, 0.9999978)
+bones/0/position = Vector3(0.00482928, -0.24184698, 0.019669108)
+bones/3/rotation = Quaternion(-0.18679881, 0.0005418421, -0.054463662, 0.98088723)
+bones/6/rotation = Quaternion(-0.20795478, 0.017368184, 0.27267438, 0.9392028)
+bones/9/rotation = Quaternion(-0.17113337, 0.120191224, 0.018658102, 0.9777113)
+bones/12/position = Vector3(0.005712184, 0.91529775, -0.010446835)
+bones/12/rotation = Quaternion(0.014753292, -0.00026233494, -0.28012162, 0.95985115)
+bones/15/rotation = Quaternion(-0.006945409, 0.00016001785, -0.0734408, 0.9972754)
+bones/18/rotation = Quaternion(0.0380473, 5.2543335e-05, 0.012761001, 0.99919444)
 
 [node name="Bone" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.00972524, -0.4037832, 0.039184004)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.00482928, -0.24184698, 0.019669108)
 
 [node name="AnimationPlayer" parent="Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -191,6 +191,7 @@ shadow_enabled = true
 environment = SubResource("Environment_0tnpc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_yr6fl")
 autoplay = true
 parameters/looping = true

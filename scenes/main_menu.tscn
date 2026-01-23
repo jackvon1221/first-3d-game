@@ -94,3 +94,16 @@ theme_override_font_sizes/font_size = 36
 text = "────────  ◦  ────────
 Controller 
 supported"
+
+[node name="controllayout3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.79607844)
+self_modulate = Color(1, 1, 1, 0.8666667)
+layout_mode = 0
+offset_left = 1576.0
+offset_top = 961.0
+offset_right = 1976.0
+offset_bottom = 1276.0
+theme_override_fonts/font = ExtResource("6_rtw2f")
+theme_override_font_sizes/font_size = 36
+text = "ESC TO QUIT"
+script = ExtResource("3_bqqt6")

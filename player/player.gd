@@ -101,8 +101,7 @@ func _physics_process(delta: float) -> void:
 	var is_sprinting := Input.is_action_pressed("sprint") and is_on_floor()
 	if is_sprinting and anim_player.current_animation != "sprint_001":
 		anim_player.play("sprint_001")
-	elif not is_sprinting and anim_player.current_animation != "idle":
-		anim_player.play("idle")
+	
 	
 # --- MOVEMENT SPEED (THIS IS THE IMPORTANT PART) ---
 	if can_be_knocked_back:

@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxvmj33ven5li"]
+[gd_scene load_steps=10 format=3 uid="uid://dxvmj33ven5li"]
 
 [ext_resource type="Script" uid="uid://dya1v5sdx6juk" path="res://scenes/pause_menu.gd" id="1_myx47"]
 [ext_resource type="FontFile" uid="uid://bqn85a6mwg284" path="res://assets/Roas Bery.otf" id="1_n87rw"]
+[ext_resource type="AudioStream" uid="uid://dkc8lmotxf7nt" path="res://music/free-game-sfx-pack-hover-select-sound-effects-for-game-developers_GqCnxaG8.mp3" id="3_kukqi"]
+[ext_resource type="FontFile" uid="uid://t8805lyr8052" path="res://assets/Westroon-Demo.otf" id="4_5d2l8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
 bg_color = Color(0, 0, 0, 0.23529412)
@@ -15,6 +17,7 @@ bg_color = Color(0, 0, 0, 0.23529412)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +108,61 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
 text = "MAIN MENU
 "
 
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_kukqi")
+
+[node name="ControlsPanel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.87058824)
+self_modulate = Color(0, 0, 0, 0.28235295)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -931.0
+offset_top = -382.0
+offset_right = -222.0
+offset_bottom = 841.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_5d2l8")
+theme_override_font_sizes/font_size = 32
+text = "Keyboard and Mouse:
+
+WASD – Move
+Mouse – Look
+Left Click – Shoot
+V – Slap
+Shift – Sprint
+Space – Jump
+Esc – Pause
+
+Controller:
+
+Left Stick – Move
+Right Stick – Look
+Right Trigger – Shoot
+R3 – Slap
+L3 – Sprint
+X – Jump
+Start – Pause
+"
+
 [connection signal="pressed" from="PLAY" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CONTROLS" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CONTROLS" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="MAIN MENU" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MAIN MENU" to="." method="_on_main_menu_pressed"]

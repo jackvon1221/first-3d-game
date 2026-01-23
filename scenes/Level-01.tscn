@@ -127,17 +127,17 @@ shape = SubResource("BoxShape3D_o60pi")
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.9664277, 38.996075)
 
 [node name="Skeleton3D" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(0.00062930956, -0.28857654, 0.025300486)
-bones/3/rotation = Quaternion(-0.22491482, 0.0015389945, -0.058005266, 0.97264916)
-bones/6/rotation = Quaternion(-0.25008363, 0.015580616, 0.31986606, 0.91372925)
-bones/9/rotation = Quaternion(-0.204311, 0.11846468, 0.0144342, 0.9716042)
-bones/12/position = Vector3(0.016198998, 0.8916732, -0.029625429)
-bones/12/rotation = Quaternion(-0.031707685, -0.02285507, -0.3306142, 0.9429563)
-bones/15/rotation = Quaternion(-0.017643139, 0.00045461822, -0.10876871, 0.9939105)
-bones/18/rotation = Quaternion(0.02764877, 0.00014894173, 0.008998182, 0.9995772)
+bones/0/position = Vector3(-0.0098206075, -0.40484422, 0.03931187)
+bones/3/rotation = Quaternion(-0.31839433, 0.0040135905, -0.06644305, 0.94561857)
+bones/6/rotation = Quaternion(-0.34973243, 0.01082215, 0.4306859, 0.8319133)
+bones/9/rotation = Quaternion(-0.28657025, 0.113517255, 0.0046891803, 0.95129883)
+bones/12/position = Vector3(0.042291015, 0.83289313, -0.07734357)
+bones/12/rotation = Quaternion(-0.14603442, -0.07827185, -0.44780636, 0.8786449)
+bones/15/rotation = Quaternion(-0.04419918, 0.0011860243, -0.19616452, 0.9795737)
+bones/18/rotation = Quaternion(0.0018133713, 0.00038819294, -0.00035018366, 0.9999983)
 
 [node name="Bone" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.00062930956, -0.28857654, 0.025300486)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0098206075, -0.40484422, 0.03931187)
 
 [node name="AnimationPlayer" parent="Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -163,6 +163,7 @@ shadow_enabled = true
 environment = SubResource("Environment_0tnpc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("5_iywne")
 autoplay = true
 parameters/looping = true
