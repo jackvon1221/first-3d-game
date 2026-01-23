@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1dis5endriph"]
+
+[ext_resource type="VideoStream" uid="uid://c0j44ylupxfgk" path="res://assets/titlescreen-Made-with-Clipchamp.ogv" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://2e11splcpycl" path="res://scenes/main_menu.gd" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://bqn85a6mwg284" path="res://assets/Roas Bery.otf" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://dr3vvmgs5nmiv" path="res://scenes/playbutton.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://bqm5litp6smor" path="res://scenes/squibbo.gd" id="4_oa1go"]
+[ext_resource type="AudioStream" uid="uid://dq3n2uxmgjnvg" path="res://music/track 1.mp3" id="5_8ln24"]
+[ext_resource type="FontFile" uid="uid://ct61msbv4fpw4" path="res://assets/Kind Hearted.ttf" id="6_rtw2f"]
+
+[node name="MainMenu" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wu84c")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0000305
+offset_right = 1046.0
+offset_bottom = 1043.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7999995, 1)
+stream = ExtResource("1_l6cm7")
+autoplay = true
+expand = true
+loop = true
+
+[node name="squibbo" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.9098039)
+self_modulate = Color(1, 1, 1, 0.88235295)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 591.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 135
+text = "SQUIBBO"
+script = ExtResource("4_oa1go")
+
+[node name="pressanybutton" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.9098039)
+self_modulate = Color(1, 1, 1, 0.88235295)
+layout_mode = 0
+offset_left = 22.0
+offset_top = 967.0
+offset_right = 898.0
+offset_bottom = 1111.0
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 50
+text = "PRESS ANY BUTTON TO PLAY"
+script = ExtResource("3_bqqt6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ln24")
+autoplay = true
+parameters/looping = true
+
+[node name="controllayout" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.79607844)
+self_modulate = Color(1, 1, 1, 0.8666667)
+layout_mode = 0
+offset_left = 1579.0
+offset_top = 17.0
+offset_right = 1896.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("6_rtw2f")
+theme_override_font_sizes/font_size = 36
+text = "WASD – Move
+Mouse – Look
+Left Click – Shoot
+V – Slap
+Shift – Sprint
+Space – Jump
+"
+
+[node name="controllayout2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.79607844)
+self_modulate = Color(1, 1, 1, 0.8666667)
+layout_mode = 0
+offset_left = 1580.0
+offset_top = 292.0
+offset_right = 1980.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("6_rtw2f")
+theme_override_font_sizes/font_size = 36
+text = "──────────────
+Controller 
+supported"
