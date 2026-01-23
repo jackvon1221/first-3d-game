@@ -91,6 +91,6 @@ offset_right = 1980.0
 offset_bottom = 607.0
 theme_override_fonts/font = ExtResource("6_rtw2f")
 theme_override_font_sizes/font_size = 36
-text = "──────────────
+text = "────────  ◦  ────────
 Controller 
 supported"

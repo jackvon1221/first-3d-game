@@ -3,8 +3,15 @@ extends Node3D
 @onready var score_label: Label = %Label
 @onready var ten_point_sound: AudioStreamPlayer = $TenPointSound
 @onready var diedsound: AudioStreamPlayer = %diedsound
+@onready var pause_menu_scene = preload("res://scenes/pause_menu.tscn")
 
-
+func _input(event):
+	if event.is_action_pressed("pause") and not get_tree().paused:
+		var pause_menu = pause_menu_scene.instantiate()
+		get_tree().current_scene.add_child(pause_menu)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
+		
 func _ready():
 	# Make sure the label shows the carried-over score
 	update_score_label()

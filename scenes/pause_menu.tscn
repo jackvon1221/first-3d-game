@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxvmj33ven5li"]
+
+[ext_resource type="Script" uid="uid://dya1v5sdx6juk" path="res://scenes/pause_menu.gd" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://bqn85a6mwg284" path="res://assets/Roas Bery.otf" id="1_n87rw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
+bg_color = Color(0, 0, 0, 0.23529412)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uahpa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n87rw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myx47")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uahpa")
+
+[node name="PLAY" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -185.0
+offset_right = 85.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9764706, 0.5372549, 0.8509804, 1)
+theme_override_colors/font_focus_color = Color(0.3372549, 0.92941177, 0.8392157, 1)
+theme_override_colors/font_hover_color = Color(0.33645585, 0.9275674, 0.83765817, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uahpa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_myx47")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
+text = "PLAY"
+
+[node name="CONTROLS" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -90.0
+offset_right = 179.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9764706, 0.5372549, 0.8509804, 1)
+theme_override_colors/font_focus_color = Color(0.3372549, 0.92941177, 0.8392157, 1)
+theme_override_colors/font_hover_color = Color(0.33645585, 0.9275674, 0.83765817, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uahpa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_myx47")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
+text = "CONTROLS"
+
+[node name="MAIN MENU" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 11.0
+offset_right = 85.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9764706, 0.5372549, 0.8509804, 1)
+theme_override_colors/font_focus_color = Color(0.3372549, 0.92941177, 0.8392157, 1)
+theme_override_colors/font_hover_color = Color(0.33645585, 0.9275674, 0.83765817, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uahpa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_myx47")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
+text = "MAIN MENU
+"
+
+[connection signal="pressed" from="PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CONTROLS" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MAIN MENU" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MAIN MENU" to="." method="_on_main_menu_pressed"]
