@@ -19,7 +19,7 @@ extends CharacterBody3D
 @onready var anim_tree = $CollisionShape3D/SQUIBBOMOVING/AnimationTree
 @onready var melee_sound: AudioStreamPlayer3D = $MeleeSound
 @onready var camera_base_pos: Vector3 = camera.position
-@onready var sprint_sound: AudioStreamPlayer3D = $SprintSound
+@onready var sprint_sound: AudioStreamPlayer = $SprintSound
 
 
 var camera_pitch := 0.0

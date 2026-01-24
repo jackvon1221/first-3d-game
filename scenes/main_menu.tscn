@@ -64,6 +64,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="controllayout" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.79607844)
 self_modulate = Color(1, 1, 1, 0.8666667)
 layout_mode = 0
@@ -82,6 +83,7 @@ Space – Jump
 "
 
 [node name="controllayout2" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.79607844)
 self_modulate = Color(1, 1, 1, 0.8666667)
 layout_mode = 0

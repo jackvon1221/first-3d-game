@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dr6dvlaay81w2"]
+[gd_scene load_steps=30 format=3 uid="uid://dr6dvlaay81w2"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_gee14"]
 [ext_resource type="Material" uid="uid://vstmyo4vi8de" path="res://mats/ground mat purple.tres" id="1_p57ef"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c0eitjxgsw042" path="res://scenes/level_exit.gd" id="13_2qjjm"]
 [ext_resource type="AudioStream" uid="uid://degkea44kx5mj" path="res://music/DEADSOUND.mp3" id="14_o60pi"]
 [ext_resource type="AudioStream" uid="uid://b7sgly3dwkhqd" path="res://music/ah-st-here-we-go-again-gta-trilogy-vs-original_hlZuDqUg.mp3" id="14_wgslm"]
+[ext_resource type="Shader" uid="uid://dfh3lbf2od0kn" path="res://mats/ps1.gdshader" id="18_almwi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ax706"]
 
@@ -52,126 +53,155 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qjjm"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_almwi"]
+resource_local_to_scene = true
+shader = ExtResource("18_almwi")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 16
+shader_parameter/dither_size = 1
+
 [node name="Level-1" type="Node3D" groups=["game"]]
 script = ExtResource("1_gee14")
 
-[node name="CSGBox3D" type="AnimatableBody3D" parent="."]
+[node name="ViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameViewport" type="SubViewport" parent="ViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="World" type="Node3D" parent="ViewportContainer/GameViewport"]
+
+[node name="CSGBox3D" type="AnimatableBody3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.866812, -3.8451166, 39.12333)
 script = ExtResource("2_6d86h")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ViewportContainer/GameViewport/World/CSGBox3D"]
 transform = Transform3D(6.7448654, 0, 0, 0, 2.03269, 0, 0, 0, 8.7689085, -43.135223, 2.1811483, -31.48664)
 mesh = SubResource("BoxMesh_ax706")
 surface_material_override/0 = ExtResource("1_p57ef")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ViewportContainer/GameViewport/World/CSGBox3D"]
 transform = Transform3D(10, 0, 0, 0, 1.1200297, 0, 0, 0, 10, -43.218224, 2.3867788, -31.579369)
 shape = SubResource("BoxShape3D_6d86h")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.928251, -5.5999994, 39.12333)
 use_collision = true
 size = Vector3(16.59856, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="CSGBox3D3" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-0.02982778, 0, -0.9955178, 0, 1, 0, 1.1694964, 0, -0.02539049, -20.232574, -5.5999994, 26.627247)
 use_collision = true
 size = Vector3(19.105612, 10, 9.579025)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+[node name="CSGBox3D6" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-0.99991024, 0, 0.013403691, 0, 1, 0, -0.013403691, 0, -0.99991024, 22.266272, -5.5999994, 39.25183)
 use_collision = true
 size = Vector3(19.69743, 10, 3.3143005)
 material = ExtResource("1_p57ef")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+[node name="CSGBox3D13" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.471252, -2.5999994, 39.732224)
 use_collision = true
 size = Vector3(10.003555, 4, 16.935913)
 material = ExtResource("3_u5sy4")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+[node name="CSGBox3D14" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1546283, -2.5999994, 39.117138)
 use_collision = true
 size = Vector3(8.773384, 4, 16.935913)
 material = ExtResource("3_u5sy4")
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+[node name="CSGBox3D15" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.60807, -2.5999994, -12.76095)
 use_collision = true
 size = Vector3(20.718174, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+[node name="CSGBox3D18" type="CSGBox3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-0.999811, 0, 0.019441778, 0, 1, 0, -0.019441778, 0, -0.999811, 23.752079, 6.1592646, -9.826049)
 use_collision = true
 size = Vector3(19.763496, 4, 10.274078)
 material = ExtResource("3_u5sy4")
 
-[node name="CSGBox3D19" type="AnimatableBody3D" parent="."]
+[node name="CSGBox3D19" type="AnimatableBody3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-1.1162474, 0, 0.002962592, 0, 1.1960833, 0, -0.003312019, 0, -0.9984794, 55.547455, 3.217144, 5.144785)
 script = ExtResource("5_o60pi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D19"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ViewportContainer/GameViewport/World/CSGBox3D19"]
 transform = Transform3D(23.63987, 0, 4.4703484e-08, 0, 1, 0, -1.1920929e-07, 0, 9.84818, 49.95525, 0, 14.877904)
 mesh = SubResource("BoxMesh_6d86h")
 surface_material_override/0 = ExtResource("1_p57ef")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D19"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ViewportContainer/GameViewport/World/CSGBox3D19"]
 transform = Transform3D(19.999996, 0, -6.340444e-06, 0, 20, 0, 6.0275197e-06, 0, 19.999899, 49.928497, -0.1642685, 14.917379)
 shape = SubResource("BoxShape3D_o60pi")
 
-[node name="Player" parent="." instance=ExtResource("3_p57ef")]
+[node name="Player" parent="ViewportContainer/GameViewport/World" instance=ExtResource("3_p57ef")]
 transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12651055, 47.74643, -0.9664277, 38.996075)
 
-[node name="Skeleton3D" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.0098206075, -0.40484422, 0.03931187)
-bones/3/rotation = Quaternion(-0.31839433, 0.0040135905, -0.06644305, 0.94561857)
-bones/6/rotation = Quaternion(-0.34973243, 0.01082215, 0.4306859, 0.8319133)
-bones/9/rotation = Quaternion(-0.28657025, 0.113517255, 0.0046891803, 0.95129883)
-bones/12/position = Vector3(0.042291015, 0.83289313, -0.07734357)
-bones/12/rotation = Quaternion(-0.14603442, -0.07827185, -0.44780636, 0.8786449)
-bones/15/rotation = Quaternion(-0.04419918, 0.0011860243, -0.19616452, 0.9795737)
-bones/18/rotation = Quaternion(0.0018133713, 0.00038819294, -0.00035018366, 0.9999983)
+[node name="Skeleton3D" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
+bones/0/position = Vector3(-0.00973509, -0.4038928, 0.03919721)
+bones/3/rotation = Quaternion(-0.31771562, 0.0039954726, -0.06638308, 0.945851)
+bones/6/rotation = Quaternion(-0.34903798, 0.010858224, 0.42991787, 0.8326014)
+bones/9/rotation = Quaternion(-0.28613585, 0.11354405, 0.0050023072, 0.9514248)
+bones/12/position = Vector3(0.042077497, 0.83337414, -0.07695307)
+bones/12/rotation = Quaternion(-0.14512776, -0.077833414, -0.44691777, 0.8792863)
+bones/15/rotation = Quaternion(-0.044004522, 0.0011806582, -0.1955255, 0.97971016)
+bones/18/rotation = Quaternion(0.0020342371, 0.00038614328, -0.00027026562, 0.9999979)
 
-[node name="Bone" parent="Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0098206075, -0.40484422, 0.03931187)
+[node name="Bone" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.00973509, -0.4038928, 0.03919721)
 
-[node name="AnimationPlayer" parent="Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
+[node name="AnimationPlayer" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
 
-[node name="Marker3D" parent="Player/Camera3D" index="0"]
+[node name="Marker3D" parent="ViewportContainer/GameViewport/World/Player/Camera3D" index="0"]
 transform = Transform3D(-0.50251836, -8.185102, 0.034710675, 7.118083, -0.5780138, -0.0003711427, 0.009133995, 0.12911391, 2.198833, -0.77152634, -1.071953, -4.0608215)
 
-[node name="Target" parent="Player" index="5"]
+[node name="jumpsound" parent="ViewportContainer/GameViewport/World/Player" index="4"]
+volume_db = -12.438
+
+[node name="Target" parent="ViewportContainer/GameViewport/World/Player" index="5"]
 position = Vector2(938, 579)
 
-[node name="MeleeSound" type="AudioStreamPlayer3D" parent="Player"]
+[node name="SprintSound" parent="ViewportContainer/GameViewport/World/Player" index="7"]
+volume_db = -20.87
+
+[node name="MeleeSound" type="AudioStreamPlayer3D" parent="ViewportContainer/GameViewport/World/Player"]
 stream = ExtResource("5_ax706")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 4, -3)
 shadow_enabled = true
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.40082255, -0.6130774, -0.6807917, 0.80963206, -0.58480775, 0.049962174, -0.42876294, -0.53116465, 0.73077106, 0.66583824, -0.044029713, 140.12787)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="ViewportContainer/GameViewport/World"]
+transform = Transform3D(-0.40082246, -0.6130775, -0.68079174, 0.8096319, -0.5848077, 0.04996211, -0.42876285, -0.53116477, 0.7307711, 0.66583824, -0.044029713, 140.12787)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportContainer/GameViewport/World"]
 environment = SubResource("Environment_0tnpc")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Track_1" type="AudioStreamPlayer" parent="ViewportContainer/GameViewport/World"]
 process_mode = 3
 stream = ExtResource("5_iywne")
 autoplay = true
 parameters/looping = true
 
-[node name="MobSpawner3D6" parent="." instance=ExtResource("2_u5sy4")]
+[node name="MobSpawner3D6" parent="ViewportContainer/GameViewport/World" instance=ExtResource("2_u5sy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.420141, -1.6927261, -19.751017)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="ViewportContainer/GameViewport/World"]
 unique_name_in_owner = true
 offset_left = 31.0
 offset_top = 19.0
@@ -181,47 +211,61 @@ scale = Vector2(0.8, 0.7672728)
 text = "SQUIBBOS: 0"
 label_settings = SubResource("LabelSettings_gee14")
 
-[node name="TenPointSound" type="AudioStreamPlayer" parent="."]
+[node name="TenPointSound" type="AudioStreamPlayer" parent="ViewportContainer/GameViewport/World"]
 unique_name_in_owner = true
 stream = ExtResource("9_0tnpc")
 volume_db = -10.496
 
-[node name="killplane" type="Area3D" parent="."]
+[node name="killplane" type="Area3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.913103, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="killplane"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ViewportContainer/GameViewport/World/killplane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.853409, 0)
 shape = SubResource("WorldBoundaryShape3D_0tnpc")
 
-[node name="smoke_puff" parent="." instance=ExtResource("10_vtaks")]
+[node name="smoke_puff" parent="ViewportContainer/GameViewport/World" instance=ExtResource("10_vtaks")]
 
-[node name="diedsound" type="AudioStreamPlayer" parent="."]
+[node name="diedsound" type="AudioStreamPlayer" parent="ViewportContainer/GameViewport/World"]
 unique_name_in_owner = true
 stream = ExtResource("14_o60pi")
+volume_db = -16.738
 
-[node name="Pickup" parent="." instance=ExtResource("12_dinhu")]
+[node name="Pickup" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_dinhu")]
 transform = Transform3D(0.026363257, 0, -0.39913028, 0, 0.4, 0, 0.39913028, 0, 0.026363257, 2.264186, 0.18286085, 39.30553)
 
-[node name="Pickup2" parent="." instance=ExtResource("12_dinhu")]
+[node name="Pickup2" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_dinhu")]
 transform = Transform3D(-0.3939449, 0, -0.069335476, 0, 0.4, 0, 0.069335476, 0, -0.3939449, -20.86689, 0.18286085, 26.387089)
 
-[node name="LevelExit" type="Area3D" parent="."]
+[node name="LevelExit" type="Area3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(1.7038535, 0.19521412, 0, -0.19521412, 1.7038535, 0, 0, 0, 1.715, 49.010933, 9.005674, 38.04153)
 script = ExtResource("13_2qjjm")
 next_level_path = "uid://d31xeqshwef5l"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelExit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ViewportContainer/GameViewport/World/LevelExit"]
 transform = Transform3D(0.99999887, 2.2351742e-08, 0, -2.2351742e-08, 0.99999887, 0, 0, 0, 0.9953321, -11.934865, -1.3674047, -28.280792)
 shape = SubResource("SphereShape3D_2qjjm")
 
-[node name="ExitSound" type="AudioStreamPlayer" parent="LevelExit"]
+[node name="ExitSound" type="AudioStreamPlayer" parent="ViewportContainer/GameViewport/World/LevelExit"]
 stream = ExtResource("14_wgslm")
 
-[node name="Pickup3" parent="LevelExit" instance=ExtResource("12_dinhu")]
+[node name="Pickup3" parent="ViewportContainer/GameViewport/World/LevelExit" instance=ExtResource("12_dinhu")]
 transform = Transform3D(-0.0406465, -0.043234218, 0.2400253, -0.004656956, 0.37735373, 0.02750021, -0.30971643, 0, -0.03191389, -11.802366, -1.3895197, -28.358822)
 
-[connection signal="body_entered" from="killplane" to="." method="_on_killplane_body_entered"]
-[connection signal="body_entered" from="LevelExit" to="LevelExit" method="_on_body_entered"]
+[node name="PostFX" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_almwi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[editable path="Player"]
-[editable path="Player/CollisionShape3D/SQUIBBOMOVING"]
+[connection signal="body_entered" from="ViewportContainer/GameViewport/World/killplane" to="." method="_on_killplane_body_entered"]
+[connection signal="body_entered" from="ViewportContainer/GameViewport/World/LevelExit" to="ViewportContainer/GameViewport/World/LevelExit" method="_on_body_entered"]
+
+[editable path="ViewportContainer/GameViewport/World/Player"]
+[editable path="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING"]

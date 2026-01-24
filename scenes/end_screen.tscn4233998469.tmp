@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cycquvxo1xh7s"]
+
+[ext_resource type="VideoStream" uid="uid://doctv2xd0ww37" path="res://assets/ENDSCREENNN.ogv" id="1_87vmq"]
+[ext_resource type="Script" uid="uid://dtilkxnistkf0" path="res://scenes/end_screen.gd" id="1_vj8vg"]
+[ext_resource type="FontFile" uid="uid://bqn85a6mwg284" path="res://assets/Roas Bery.otf" id="2_6e1uj"]
+[ext_resource type="Script" uid="uid://dr3vvmgs5nmiv" path="res://scenes/playbutton.gd" id="3_87vmq"]
+[ext_resource type="AudioStream" uid="uid://3782uhh108ma" path="res://music/W-SFX.mp3" id="3_jc7ji"]
+[ext_resource type="AudioStream" uid="uid://dyw5fng7svlql" path="res://music/WSONG.mp3" id="6_plosh"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vj8vg")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_87vmq")
+autoplay = true
+loop = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.74)
+theme_override_fonts/font = ExtResource("2_6e1uj")
+theme_override_font_sizes/font_size = 120
+text = "THANKS 4 PLAYING!"
+script = ExtResource("3_87vmq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jc7ji")
+volume_db = -12.894
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_plosh")
+volume_db = -8.587
+autoplay = true
