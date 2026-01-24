@@ -55,34 +55,34 @@ shape = SubResource("SphereShape3D_g1dw6")
 transform = Transform3D(-0.36515662, 0, 0.2588002, 0, 0.2902786, 0, -0.19966066, 0, -0.47331595, 0, 0, 0)
 
 [node name="Skeleton3D" parent="CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.0013710707, -0.31083316, 0.027982624)
+bones/0/position = Vector3(0.006174152, -0.22688366, 0.017865885)
 bones/1/rotation = Quaternion(-0.0005731715, 4.292873e-06, -0.00040345598, 0.9999998)
 bones/2/rotation = Quaternion(-0.89802796, -0.062744536, -0.16554154, 0.4027466)
 bones/3/position = Vector3(-1.193316e-07, 1.0036317, 1.11806315e-08)
-bones/3/rotation = Quaternion(-0.24884112, 0.0021683858, -0.060199045, 0.9666693)
+bones/3/rotation = Quaternion(-0.17999604, 0.00036458246, -0.05382562, 0.9821935)
 bones/4/rotation = Quaternion(-0.010559319, -1.0957355e-08, 0.0004630406, 0.99994415)
 bones/5/rotation = Quaternion(0.669234, 0.26255777, 0.63450634, -0.28388557)
 bones/6/position = Vector3(-9.702458e-08, 1.0912691, 1.1646119e-07)
-bones/6/rotation = Quaternion(-0.27621555, 0.0144086145, 0.34904248, 0.89535844)
+bones/6/rotation = Quaternion(-0.20039761, 0.017676162, 0.26418978, 0.94325614)
 bones/7/rotation = Quaternion(-0.013631781, -0.0014797606, -0.016616378, 0.99976796)
 bones/8/rotation = Quaternion(0.18668716, 0.4940617, 0.83941275, -0.12820801)
-bones/9/rotation = Quaternion(-0.24220333, 0.116053194, 0.03634401, 0.96257377)
+bones/9/rotation = Quaternion(-0.19839258, 0.118171334, 0.06698058, 0.9706645)
 bones/10/rotation = Quaternion(-0.00028361063, -0.082645655, 0.22268581, 0.97138083)
 bones/11/rotation = Quaternion(-0.43124476, 0.4599424, 0.7512131, -0.19534546)
-bones/12/position = Vector3(0.021193666, 0.8804212, -0.038759895)
-bones/12/rotation = Quaternion(-0.05391238, -0.03363809, -0.35416806, 0.93302035)
+bones/12/position = Vector3(0.0023542505, 0.9228626, -0.004305673)
+bones/12/rotation = Quaternion(0.029490128, 0.006912358, -0.26376516, 0.96411127)
 bones/13/position = Vector3(1.7317386e-07, 0.4611022, -2.5811268e-08)
 bones/13/rotation = Quaternion(-0.13820554, 0.044254087, 0.074114345, 0.9866347)
 bones/14/rotation = Quaternion(0.8365414, -0.34619823, -0.37460783, -0.20003542)
-bones/15/rotation = Quaternion(-0.024394572, 0.00064051937, -0.13102876, 0.99107826)
+bones/15/rotation = Quaternion(-0.005043164, 0.00010765508, -0.0671516, 0.9977301)
 bones/16/rotation = Quaternion(-0.068152264, 0.06045802, 0.021442998, 0.9956106)
 bones/17/rotation = Quaternion(-0.8250508, -0.025738828, 0.3833836, 0.41430163)
 bones/18/position = Vector3(-4.9412975e-08, 0.93501866, -5.2974613e-08)
-bones/18/rotation = Quaternion(0.021070708, 0.00020988841, 0.0066178706, 0.9997561)
+bones/18/rotation = Quaternion(0.039897785, 3.537368e-05, 0.013430648, 0.99911356)
 bones/19/rotation = Quaternion(-0.10360923, -0.032669302, 0.047643673, 0.99293905)
 
 [node name="Bone" parent="CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0013710707, -0.31083316, 0.027982624)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.006174152, -0.22688366, 0.017865885)
 
 [node name="AnimationTree" type="AnimationTree" parent="CollisionShape3D/SQUIBBOMOVING"]
 tree_root = SubResource("AnimationNodeBlendTree_hg6s5")
@@ -121,7 +121,7 @@ stream = ExtResource("5_qjkh3")
 volume_db = -7.632
 
 [node name="Target" type="Sprite2D" parent="."]
-position = Vector2(930, 585)
+position = Vector2(930, 545)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_g6k8r")
 

@@ -80,17 +80,17 @@ transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12
 transform = Transform3D(0.8940262, 0, 0.4699118, 0, 1.01, 0, -0.4699118, 0, 0.8940262, -0.049232483, 0.75520515, 0.47982407)
 
 [node name="Skeleton3D" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.008872823, -0.3942989, 0.038041078)
-bones/3/rotation = Quaternion(-0.30982313, 0.003784911, -0.065684535, 0.9485152)
-bones/6/rotation = Quaternion(-0.34092388, 0.011276263, 0.42094064, 0.8405074)
-bones/9/rotation = Quaternion(-0.2784648, 0.11405365, 0.004820548, 0.9536383)
-bones/12/position = Vector3(0.0399245, 0.8382244, -0.07301562)
-bones/12/rotation = Quaternion(-0.13594717, -0.07339281, -0.437882, 0.8856587)
-bones/15/rotation = Quaternion(-0.041743122, 0.0011183631, -0.1881, 0.98126185)
-bones/18/rotation = Quaternion(0.0041115116, 0.00036691254, 0.0004813681, 0.9999914)
+bones/0/position = Vector3(0.007105051, -0.21652633, 0.016617721)
+bones/3/rotation = Quaternion(-0.16624172, 6.782053e-06, -0.05253012, 0.9846849)
+bones/6/rotation = Quaternion(-0.18510395, 0.018287977, 0.2470019, 0.9509953)
+bones/9/rotation = Quaternion(-0.18962762, 0.118550606, 0.073038206, 0.9719324)
+bones/12/position = Vector3(2.9851686e-05, 0.9280988, -5.482514e-05)
+bones/12/rotation = Quaternion(0.039758675, 0.011914074, -0.25227073, 0.9667661)
+bones/15/rotation = Quaternion(-0.0012032454, 1.9357715e-06, -0.054449394, 0.9985159)
+bones/18/rotation = Quaternion(0.043539, 1.6316503e-06, 0.014748319, 0.99894285)
 
 [node name="Bone" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.008872823, -0.3942989, 0.038041078)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.007105051, -0.21652633, 0.016617721)
 
 [node name="AnimationPlayer" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""

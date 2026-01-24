@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bq2o512r40qg6"]
+[gd_scene load_steps=25 format=3 uid="uid://bq2o512r40qg6"]
 
 [ext_resource type="Script" uid="uid://dgnlpkljng1fu" path="res://scenes/game.gd" id="1_mwcjr"]
 [ext_resource type="PackedScene" uid="uid://c40bh11xbdkv2" path="res://player/player.tscn" id="2_0jvlk"]
@@ -45,6 +45,18 @@ albedo_texture = SubResource("CompressedTexture2D_gsl5u")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yx1x"]
+albedo_color = Color(0.8899829, 0.91905797, 0.7813718, 1)
+albedo_texture = SubResource("CompressedTexture2D_gsl5u")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o0nf"]
+albedo_color = Color(0.17254902, 0.8352941, 0.972549, 1)
+albedo_texture = SubResource("CompressedTexture2D_gsl5u")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8votd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rctcc"]
@@ -80,17 +92,17 @@ transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12
 transform = Transform3D(0.8940262, 0, 0.4699118, 0, 1.01, 0, -0.4699118, 0, 0.8940262, -0.049232483, 0.75520515, 0.47982407)
 
 [node name="Skeleton3D" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.0016259998, -0.3136695, 0.028324436)
-bones/3/rotation = Quaternion(-0.2510208, 0.0022258554, -0.06039775, 0.966093)
-bones/6/rotation = Quaternion(-0.27857947, 0.0143000875, 0.35167795, 0.89359474)
-bones/9/rotation = Quaternion(-0.24359064, 0.115979955, 0.03536398, 0.96226907)
-bones/12/position = Vector3(0.021830188, 0.87898725, -0.03992399)
-bones/12/rotation = Quaternion(-0.056738596, -0.035009854, -0.35713905, 0.9316688)
-bones/15/rotation = Quaternion(-0.025011096, 0.0006574975, -0.13306011, 0.9907922)
-bones/18/rotation = Quaternion(0.020472888, 0.00021542654, 0.006401548, 0.9997699)
+bones/0/position = Vector3(0.0064946013, -0.2233183, 0.017436223)
+bones/3/rotation = Quaternion(-0.17644565, 0.00027214037, -0.05349191, 0.98285586)
+bones/6/rotation = Quaternion(-0.19645149, 0.01783548, 0.25975707, 0.94531214)
+bones/9/rotation = Quaternion(-0.19613081, 0.118270606, 0.06854595, 0.97100276)
+bones/12/position = Vector3(0.0015541384, 0.9246651, -0.0028423844)
+bones/12/rotation = Quaternion(0.03298602, 0.008614937, -0.25986093, 0.9650441)
+bones/15/rotation = Quaternion(-0.0040511843, 8.034111e-05, -0.06387107, 0.99794996)
+bones/18/rotation = Quaternion(0.040863175, 2.6417305e-05, 0.013780008, 0.9990698)
 
 [node name="Bone" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0016259998, -0.3136695, 0.028324436)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, 0.0064946013, -0.2233183, 0.017436223)
 
 [node name="AnimationPlayer" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -135,8 +147,17 @@ stream = ExtResource("5_y4m85")
 autoplay = true
 parameters/looping = true
 
-[node name="MobSpawner3D11" parent="ViewportContainer/GameViewport/World" instance=ExtResource("6_60uwf")]
-transform = Transform3D(0.99984354, 0, -0.017696768, 0, 1, 0, 0.017696768, 0, 0.99984354, -13.206154, 7.278805, 36.1041)
+[node name="MobSpawner3D14" parent="ViewportContainer/GameViewport/World" instance=ExtResource("6_60uwf")]
+transform = Transform3D(0.99984354, 0, -0.017696768, 0, 1, 0, 0.017696768, 0, 0.99984354, 10.995335, -0.39842033, 49.21372)
+
+[node name="MobSpawner3D15" parent="ViewportContainer/GameViewport/World" instance=ExtResource("6_60uwf")]
+transform = Transform3D(0.99984354, 0, -0.017696768, 0, 1, 0, 0.017696768, 0, 0.99984354, -33.01405, -0.39842033, 49.21372)
+
+[node name="MobSpawner3D16" parent="ViewportContainer/GameViewport/World" instance=ExtResource("6_60uwf")]
+transform = Transform3D(0.99984354, 0, -0.017696768, 0, 1, 0, 0.017696768, 0, 0.99984354, -56.43179, -0.39842033, 49.21372)
+
+[node name="MobSpawner3D17" parent="ViewportContainer/GameViewport/World" instance=ExtResource("6_60uwf")]
+transform = Transform3D(0.99984354, 0, -0.017696768, 0, 1, 0, 0.017696768, 0, 0.99984354, -101.84152, -0.39842033, 49.21372)
 
 [node name="Label" type="Label" parent="ViewportContainer/GameViewport/World"]
 unique_name_in_owner = true
@@ -159,19 +180,19 @@ stream = ExtResource("9_rcajs")
 volume_db = -21.945
 
 [node name="LevelExit2" type="Area3D" parent="ViewportContainer/GameViewport/World"]
-transform = Transform3D(-1.7012264, -0.19491315, -0.095195994, -0.19521411, 1.7038532, 0, 0.094577275, 0.01083592, -1.7123557, 14.62616, 0.32032967, -25.106522)
+transform = Transform3D(-3.316249, -0.30695462, -0.1325614, -0.38053644, 2.6832752, 0, 0.18436217, 0.017064707, -2.3844728, -233.97511, 0.32032967, -20.637741)
 script = ExtResource("10_afqw1")
 next_level_path = "uid://cycquvxo1xh7s"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ViewportContainer/GameViewport/World/LevelExit2"]
-transform = Transform3D(0.99999887, 2.2351742e-08, 0, -2.2351742e-08, 0.99999887, 0, 0, 0, 0.9953321, -11.934865, -1.3674047, -28.280792)
+transform = Transform3D(0.99999887, 2.0430889e-08, -3.7252903e-09, -3.245077e-08, 0.9999988, -4.656613e-10, -7.450581e-09, -9.313226e-10, 0.9953322, -11.949295, -1.3694525, -27.914785)
 shape = SubResource("SphereShape3D_yr6fl")
 
 [node name="ExitSound" type="AudioStreamPlayer" parent="ViewportContainer/GameViewport/World/LevelExit2"]
 stream = ExtResource("11_lpoo0")
 
 [node name="Pickup3" parent="ViewportContainer/GameViewport/World/LevelExit2" instance=ExtResource("12_8m64b")]
-transform = Transform3D(-0.0406465, -0.043234218, 0.2400253, -0.004656956, 0.37735373, 0.02750021, -0.30971643, 0, -0.03191389, -11.802366, -1.3895197, -28.358822)
+transform = Transform3D(-0.0406465, -0.043234218, 0.2400253, -0.0046569556, 0.37735373, 0.027500205, -0.3097165, -1.7462298e-10, -0.03191389, -11.816792, -1.3915672, -27.992813)
 
 [node name="Collision" type="Node3D" parent="ViewportContainer/GameViewport/World"]
 
@@ -181,6 +202,174 @@ use_collision = true
 size = Vector3(10.003555, 1.1690674, 11.510178)
 material = SubResource("StandardMaterial3D_8g03v")
 
+[node name="CSGBox3D15" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33.58145, -1.1845331, 49.794857)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.59861374, -1.1845331, 39.77171)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.237516, -1.1845331, 49.692974)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.742012, -1.1845331, 49.794857)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33.612564, -1.1845331, 39.75173)
+use_collision = true
+size = Vector3(10.042576, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.1754024e-08, 0, -0.9922159, 0, 1, 0, 0.95522076, 0, -4.3371134e-08, 22.18998, -1.1845331, 49.83166)
+use_collision = true
+size = Vector3(10.4407425, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.799181, -1.1845331, 39.825844)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.1754024e-08, 0, -0.9922159, 0, 1, 0, 0.95522076, 0, -4.3371134e-08, -12.225601, -1.1845331, 39.9344)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.807335)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.454199, -1.1845331, 49.69511)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 10.813563)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -45.973454, -1.1845331, 39.77171)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -57.61236, -1.1845331, 49.54114)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34.632828, -1.1845331, 49.794857)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34.505306, -1.1845331, 39.825844)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.369469)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.1754024e-08, 0, -0.9922159, 0, 1, 0, 0.95522076, 0, -4.3371134e-08, -57.43596, -1.1845331, 39.662403)
+use_collision = true
+size = Vector3(10.109409, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -68.91162, -1.1845331, 49.60627)
+use_collision = true
+size = Vector3(9.825874, 1.1690674, 11.038504)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -91.59195, -1.1845331, 39.77171)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -103.23086, -1.1845331, 49.54114)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80.25133, -1.1845331, 49.794857)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80.19416, -1.1845331, 39.825844)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.1754024e-08, 0, -0.9922159, 0, 1, 0, 0.95522076, 0, -4.3371134e-08, -102.8964, -1.1845331, 39.64952)
+use_collision = true
+size = Vector3(10.223057, 1.1690674, 11.112999)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -114.5361, -1.1845331, 49.69511)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.130117)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -137.24297, -1.1845331, 39.77171)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -148.88187, -1.1845331, 49.54114)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -125.90234, -1.1845331, 49.794857)
+use_collision = true
+size = Vector3(10.003555, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_8g03v")
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -125.84517, -1.1845331, 39.794743)
+use_collision = true
+size = Vector3(9.941353, 1.1690674, 11.510178)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.1754024e-08, 0, -0.9922159, 0, 1, 0, 0.95522076, 0, -4.3371134e-08, -148.88477, -1.1845331, 39.66617)
+use_collision = true
+size = Vector3(10.117959, 1.1690674, 11.707623)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -180.66049, -1.1845331, 55.09911)
+use_collision = true
+size = Vector3(21.065418, 1.1690674, 46.68803)
+material = SubResource("StandardMaterial3D_2yx1x")
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -180.66049, -1.1845331, 34.100567)
+use_collision = true
+size = Vector3(21.065418, 1.1690674, 46.68803)
+material = SubResource("StandardMaterial3D_3o0nf")
+
 [node name="killplane" type="Area3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.913103, 0)
 
@@ -189,7 +378,25 @@ transform = Transform3D(0.014276333, 0, 0.9998981, 0, 1, 0, -0.9998981, 0, 0.014
 shape = SubResource("WorldBoundaryShape3D_8votd")
 
 [node name="Pickup5" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
-transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, 42.594017, 0.109499454, 21.92126)
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, 11.110783, 0.109499454, 39.199398)
+
+[node name="Pickup6" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, -23.454271, 0.109499454, 50.003597)
+
+[node name="Pickup7" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, -57.00255, 0.109499454, 38.686092)
+
+[node name="Pickup8" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, -104.01213, 0.109499454, 38.686092)
+
+[node name="Pickup9" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, -165.52814, 0.109499454, 44.437454)
+
+[node name="Pickup10" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, -171.0143, 0.109499454, 44.437454)
+
+[node name="Pickup11" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, -176.55617, 0.109499454, 44.437454)
 
 [node name="PostFX" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_rctcc")

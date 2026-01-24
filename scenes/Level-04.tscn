@@ -107,17 +107,17 @@ transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12
 transform = Transform3D(0.8940262, 0, 0.4699118, 0, 1.01, 0, -0.4699118, 0, 0.8940262, -0.049232483, 0.75520515, 0.47982407)
 
 [node name="Skeleton3D" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.01010532, -0.40801194, 0.039693624)
-bones/3/rotation = Quaternion(-0.31999615, 0.004056368, -0.06658442, 0.9450675)
-bones/6/rotation = Quaternion(-0.3513695, 0.010736939, 0.4324958, 0.83028406)
-bones/9/rotation = Quaternion(-0.28746274, 0.11346411, 0.00375616, 0.95104)
-bones/12/position = Vector3(0.042812437, 0.83171856, -0.078297116)
-bones/12/rotation = Quaternion(-0.14904822, -0.07972924, -0.45075545, 0.87649727)
-bones/15/rotation = Quaternion(-0.04465868, 0.0011986949, -0.19767284, 0.9792496)
-bones/18/rotation = Quaternion(0.001720034, 0.0003890591, -0.000383957, 0.99999845)
+bones/0/position = Vector3(-0.0047662305, -0.34860831, 0.032534897)
+bones/3/rotation = Quaternion(-0.2734356, 0.0028181702, -0.06242994, 0.9598581)
+bones/6/rotation = Quaternion(-0.3026952, 0.01316826, 0.3785272, 0.8745968)
+bones/9/rotation = Quaternion(-0.2466261, 0.11604278, 0.008978071, 0.96209615)
+bones/12/position = Vector3(0.029670944, 0.86132365, -0.054263428)
+bones/12/rotation = Quaternion(-0.09140942, -0.05182585, -0.39308596, 0.91347784)
+bones/15/rotation = Quaternion(-0.03136601, 0.0008325336, -0.15398486, 0.98757493)
+bones/18/rotation = Quaternion(0.014283916, 0.0002727439, 0.0041620703, 0.9998893)
 
 [node name="Bone" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.01010532, -0.40801194, 0.039693624)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0047662305, -0.34860831, 0.032534897)
 
 [node name="AnimationPlayer" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -191,7 +191,7 @@ volume_db = -21.945
 [node name="LevelExit2" type="Area3D" parent="ViewportContainer/GameViewport/World"]
 transform = Transform3D(-1.7012264, -0.19491315, -0.095195994, -0.19521411, 1.7038532, 0, 0.094577275, 0.01083592, -1.7123557, -72.80934, 11.568138, -7.6401825)
 script = ExtResource("9_q3ja2")
-next_level_path = "uid://cycquvxo1xh7s"
+next_level_path = "uid://bq2o512r40qg6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ViewportContainer/GameViewport/World/LevelExit2"]
 transform = Transform3D(0.99999887, 2.2351742e-08, 0, -2.2351742e-08, 0.99999887, 0, 0, 0, 0.9953321, -11.934865, -1.3674047, -28.280792)
