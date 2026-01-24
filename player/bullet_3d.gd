@@ -22,5 +22,7 @@ func _on_body_entered(body):
 		var player = get_tree().get_first_node_in_group("player")
 		if player and player.has_method("rumble_hit"):
 			player.rumble_hit()
+			
+			
 
 	queue_free()

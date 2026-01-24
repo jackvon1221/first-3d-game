@@ -80,17 +80,17 @@ transform = Transform3D(-0.12651055, 0, 0.9919653, 0, 1, 0, -0.9919653, 0, -0.12
 transform = Transform3D(0.8940262, 0, 0.4699118, 0, 1.01, 0, -0.4699118, 0, 0.8940262, -0.049232483, 0.75520515, 0.47982407)
 
 [node name="Skeleton3D" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature" index="0"]
-bones/0/position = Vector3(-0.0100981975, -0.40793267, 0.039684072)
-bones/3/rotation = Quaternion(-0.31999618, 0.0040563685, -0.06658442, 0.94506747)
-bones/6/rotation = Quaternion(-0.35136953, 0.010736941, 0.43249574, 0.830284)
-bones/9/rotation = Quaternion(-0.2875247, 0.11345932, 0.0038465336, 0.95102143)
-bones/12/position = Vector3(0.04280452, 0.8317363, -0.07828266)
-bones/12/rotation = Quaternion(-0.14897297, -0.079692826, -0.45068198, 0.8765512)
-bones/15/rotation = Quaternion(-0.044658683, 0.0011986949, -0.19767284, 0.9792496)
-bones/18/rotation = Quaternion(0.0014949763, 0.0003911476, -0.00046539062, 0.99999875)
+bones/0/position = Vector3(-0.0016259998, -0.3136695, 0.028324436)
+bones/3/rotation = Quaternion(-0.2510208, 0.0022258554, -0.06039775, 0.966093)
+bones/6/rotation = Quaternion(-0.27857947, 0.0143000875, 0.35167795, 0.89359474)
+bones/9/rotation = Quaternion(-0.24359064, 0.115979955, 0.03536398, 0.96226907)
+bones/12/position = Vector3(0.021830188, 0.87898725, -0.03992399)
+bones/12/rotation = Quaternion(-0.056738596, -0.035009854, -0.35713905, 0.9316688)
+bones/15/rotation = Quaternion(-0.025011096, 0.0006574975, -0.13306011, 0.9907922)
+bones/18/rotation = Quaternion(0.020472888, 0.00021542654, 0.006401548, 0.9997699)
 
 [node name="Bone" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0100981975, -0.40793267, 0.039684072)
+transform = Transform3D(0.9999756, 0.006982951, -1.6951534e-06, -0.006982951, 0.9999755, -0.0004870369, -1.7058427e-06, 0.00048703677, 1, -0.0016259998, -0.3136695, 0.028324436)
 
 [node name="AnimationPlayer" parent="ViewportContainer/GameViewport/World/Player/CollisionShape3D/SQUIBBOMOVING" index="1"]
 autoplay = ""
@@ -159,7 +159,7 @@ stream = ExtResource("9_rcajs")
 volume_db = -21.945
 
 [node name="LevelExit2" type="Area3D" parent="ViewportContainer/GameViewport/World"]
-transform = Transform3D(-1.7012264, -0.19491315, -0.095195994, -0.19521411, 1.7038532, 0, 0.094577275, 0.01083592, -1.7123557, 14.62616, 0.32032967, -7.400387)
+transform = Transform3D(-1.7012264, -0.19491315, -0.095195994, -0.19521411, 1.7038532, 0, 0.094577275, 0.01083592, -1.7123557, 14.62616, 0.32032967, -25.106522)
 script = ExtResource("10_afqw1")
 next_level_path = "uid://cycquvxo1xh7s"
 
@@ -176,9 +176,9 @@ transform = Transform3D(-0.0406465, -0.043234218, 0.2400253, -0.004656956, 0.377
 [node name="Collision" type="Node3D" parent="ViewportContainer/GameViewport/World"]
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="ViewportContainer/GameViewport/World/Collision"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42.895844, -1.1845331, 39.732224)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 45.046608, -1.1845331, 39.732224)
 use_collision = true
-size = Vector3(10.003555, 1.1690674, 16.935913)
+size = Vector3(10.003555, 1.1690674, 11.510178)
 material = SubResource("StandardMaterial3D_8g03v")
 
 [node name="killplane" type="Area3D" parent="ViewportContainer/GameViewport/World"]
@@ -189,7 +189,7 @@ transform = Transform3D(0.014276333, 0, 0.9998981, 0, 1, 0, -0.9998981, 0, 0.014
 shape = SubResource("WorldBoundaryShape3D_8votd")
 
 [node name="Pickup5" parent="ViewportContainer/GameViewport/World" instance=ExtResource("12_8m64b")]
-transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, 42.594017, 0.109499454, 39.698677)
+transform = Transform3D(0.033207208, -2.0015427e-09, -0.5299812, -3.951796e-10, 0.46774474, -2.3179398e-09, 0.4345235, 5.7835375e-10, 0.040502127, 42.594017, 0.109499454, 21.92126)
 
 [node name="PostFX" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_rctcc")

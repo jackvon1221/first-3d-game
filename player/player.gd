@@ -42,9 +42,8 @@ func rumble_hit():
 	Input.start_joy_vibration(device, 0.3, 0.8, 0.15)
 
 func melee_attack():
-	
-
 	var space = get_world_3d().direct_space_state
+
 	var from = global_transform.origin + Vector3.UP * 1.0
 	var to = from + (-global_transform.basis.z * 2.5)
 
@@ -55,12 +54,11 @@ func melee_attack():
 
 	if result:
 		var hit = result.collider
-
 		if hit.has_method("take_damage"):
 			hit.take_damage()
 			rumble_hit()
-	else:
-		print("HIT: nothing")
+
+
 
 func _input(event):
 	if event.is_action_pressed("hit") and is_on_floor():

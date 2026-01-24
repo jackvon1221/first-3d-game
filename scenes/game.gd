@@ -55,3 +55,7 @@ func _on_killplane_body_entered(body: Node3D) -> void:
 
 	elif "zombie" in str(body.name):
 		body.queue_free()
+
+
+func _on_level_exit_2_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.

@@ -12,6 +12,7 @@ top_level = true
 script = ExtResource("1_hgguu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(16.5, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 shape = SubResource("SphereShape3D_hgguu")
 
 [node name="Projectile3D" parent="." instance=ExtResource("1_kixxk")]
